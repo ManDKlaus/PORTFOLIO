@@ -10,12 +10,12 @@ function Landing({ show, showFull }) {
             <div className="w-80 flex flex-col justify-center items-center text-center">
                 <Image
                     src={Nicolas}
-                    alt="Nicolás Daniel Mansilla"
+                    alt="Nicol&aacute;s Daniel Mansilla"
                     height={200}
                     className='rounded-lg'
                 />
                 <h1 className={`my-4 text-x1 ${emblemaOne.className} text-gray-900 dark:text-white md:text-2xl lg:text-4xl`}>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-600 from-yellow-200">Nicolás Daniel</span> Mansilla
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-600 from-yellow-200">Nicol&aacute;s Daniel</span> Mansilla
                 </h1>
                 <h2 className='' >
                     <span className='font-bold'>Passionate Full Stack Developer</span> | Crafting Innovative Solutions for Seamless User Experiences | JS | HTML | CSS | React | Redux | NextJS | TailwindCSS | NodeJS | Express | PostgreSQL | Passport | Cloudinary | Multer</h2>
