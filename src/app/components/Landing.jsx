@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Nicolas from "../../../public/Nicolás.jpeg"
+import Nicolas from "../../../public/Nicolas.jpeg"
 
 import { Emblema_One } from 'next/font/google'
 const emblemaOne = Emblema_One({ subsets: ['latin'], weight:["400"] })
