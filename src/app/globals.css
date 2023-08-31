@@ -13,6 +13,14 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 10.5em;
+  margin-bottom: 10.5em;
+}
+
+.dark .custom-shadow {
+  box-shadow: inset -3px 3px 4px 2px rgb(245, 245, 245);
+}
+
+.custom-shadow {
+  box-shadow: inset -3px 3px 4px 2px #4e5c74, -3px 3px 4px .1px rgba(0, 0, 0, .1);
 }

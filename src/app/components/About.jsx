@@ -2,7 +2,7 @@ import React from 'react'
 
 function About() {
   return (
-    <section id='About' className='min-h-full w-full text-justify flex flex-col justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased'>
+    <section id='About' className='min-h-full w-full pl-[calc(12%)] pr-[calc(10%)] text-justify flex flex-col justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased'>
         <h2 className='text-3xl font-semibold mb-4'>About Me</h2>
         <p>
             Hi there! I&apos;m a passionate Full Stack Developer, obviusly. When I&apos;m not coding and building awesome web applications, you can find me indulging in my love for series and movies. I&apos;m a huge fan of classics like Pokemon, Naruto, and Dragon Ball, and I&apos;m always excited about the latest releases from the Marvel universe.

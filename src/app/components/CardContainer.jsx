@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 
 const projects = [
-    // Array de objetos con los detalles de cada proyecto
-    // Puedes agregar tantos proyectos como desees
     {
         id: 1,
         title: 'Proyecto 1',
@@ -24,7 +22,6 @@ const projects = [
         liveDemoLink: 'enlace del demo 2',
         sourceCodeLink: 'enlace del código fuente 2',
     },
-    // ... Agregar más proyectos aquí ...
 ];
 
 const CardContainer = () => {
