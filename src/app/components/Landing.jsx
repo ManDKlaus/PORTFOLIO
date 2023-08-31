@@ -7,7 +7,7 @@ const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
 
 function Landing({ show, showFull }) {
     return (
-        <div className={`absolute left-0 z-50 h-full ${show ? "w-[calc(100vw-64px)]" : "w-[calc(25vw)]"}  rounded-tr-[15px] rounded-br-[15px] transition-width ease-in-out duration-700 cursor-pointer flex justify-center items-center `} onClick={showFull} >
+        <div className={`absolute left-0 z-50 h-full ${show ? "w-[calc(100vw-64px)]" : "w-[calc(25vw)]"} text-white rounded-tr-[15px] rounded-br-[15px] transition-width ease-in-out duration-700 cursor-pointer flex justify-center items-center `} onClick={showFull} >
             <div className="w-80 z-50 flex flex-col justify-center items-center text-center " style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>
                 <Image
                     src={Nicolas}
@@ -15,7 +15,7 @@ function Landing({ show, showFull }) {
                     height={150}
                     className='rounded-lg'
                 />
-                <h1 className={`my-4 text-lg ${emblemaOne.className} text-gray-900 dark:text-white md:text-xl lg:text-3xl`} >
+                <h1 className={`my-4 text-lg ${emblemaOne.className}  md:text-xl lg:text-3xl`} >
                     <span className="text-yellow-400">Nicol&aacute;s Daniel </span>
                     Mansilla
                 </h1>
