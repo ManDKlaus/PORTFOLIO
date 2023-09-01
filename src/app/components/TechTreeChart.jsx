@@ -54,7 +54,7 @@ function TechTreeChart({ data }) {
   }, [data]); // Add data to the dependency array
 
   return (
-    <div id="chartdiv" className='absolute left-0 w-full h-full'></div>
+    <div id="chartdiv" className='absolute left-0 w-full h-full z-0'></div>
   );
 }
 

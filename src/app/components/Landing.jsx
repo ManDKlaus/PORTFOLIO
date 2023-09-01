@@ -15,7 +15,7 @@ function Landing({ show, showFull }) {
                     height={150}
                     className='rounded-lg'
                 />
-                <h1 className={`my-4 text-lg ${emblemaOne.className}  md:text-xl lg:text-3xl`} >
+                <h1 className={`my-4 text-lg ${emblemaOne.className} md:text-xl lg:text-3xl`} >
                     <span className="text-yellow-400">Nicol&aacute;s Daniel </span>
                     Mansilla
                 </h1>

@@ -33,7 +33,7 @@ function Home() {
   return (
     <main className={`relative h-screen w-screen flex overflow-hidden transition-dark text-gray-900 text-sm duration-1000 ${dark && "dark text-white select-none"}`}>
       <Landing show={show} showFull={showFull} />
-      <Content />
+      <Content dark={dark} />
       <NavBar falseFull={falseFull} showDark={showDark} dark={dark} />
     </main>
   );
