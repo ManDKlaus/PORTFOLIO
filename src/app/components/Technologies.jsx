@@ -86,7 +86,7 @@ const Technologies = ({ dark }) => {
   };
 
   const [showGrafVirus, setShowGrafVirus] = useState(true);
-  const [showGrafIllustration, setShowGrafIllustration] = useState(true);
+  const [showGrafIllustration, setShowGrafIllustration] = useState(false);
 
   const handleShowVirus = () => {
     setShowGrafVirus(true);
