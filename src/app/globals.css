@@ -13,8 +13,8 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  margin-top: 10.5em;
-  margin-bottom: 10.5em;
+  margin-top: calc(100vh/10);
+  margin-bottom: calc(100vh/10);
 }
 
 .dark .custom-shadow {
