@@ -105,13 +105,13 @@ const Technologies = ({ dark }) => {
       <div className='min-h-screen w-full pl-[calc(12%)] pr-[calc(10%)] mt-56'>
         <div className='flex gap-14'>
           <h1 className="text-3xl font-semibold z-10">Technologies</h1>
-          <div className='h-full w-full flex items-center mt-1 gap-5 z-50'>
+          <div className='h-full w-full flex items-center mt-1 gap-5 z-40'>
               <Image
                 width="20"
                 height="20"
                 src={dark ? GrafVirusW : GrafVirus}
                 alt="Grafic Virus"
-                className={`w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafVirus && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
+                className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafVirus && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
                 onClick={handleShowVirus}
               />
               <Image
@@ -119,7 +119,7 @@ const Technologies = ({ dark }) => {
                 height="20"
                 src={dark ? GrafIllustrationW : GrafIllustration}
                 alt="Grafic Illustration"
-                className={`w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafIllustration && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+                className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafIllustration && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
                 onClick={handleShowIllustration} />
           </div>
         </div>
