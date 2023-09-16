@@ -4,6 +4,9 @@ import GrafVirus from "../../../public/img/GrafVirus.png"
 import GrafVirusW from "../../../public/img/GrafVirusW.png"
 import GrafIllustration from "../../../public/img/GrafIllustration.png"
 import GrafIllustrationW from "../../../public/img/GrafIllustrationW.png"
+import Icons from "../../../public/img/Icons.png"
+import IconsW from "../../../public/img/IconsW.png"
+import TechList from './TechList';
 import dynamic from 'next/dynamic';
 const ChartComponent = dynamic(() => import('../components/TechTreeChart'), { ssr: false });
 const ChartComponent2 = dynamic(() => import('../components/TechIllustration'), { ssr: false });
@@ -15,117 +18,201 @@ const Technologies = ({ dark }) => {
     value: 0,
     children: [
       {
-        name: "Frontend",
+        name: "FRONT-END",
+        value: 1,
+        showTooltip: false,
         children: [
           {
             name: "HTML",
-            children: [
-              { name: "JSX", value: 1 },
-              { name: "SVG", value: 1 },
-            ],
+            value: 2,
+            image: "https://logos-download.com/wp-content/uploads/2017/07/HTML5_badge.png",
           },
           {
             name: "CSS",
-            children: [
-              { name: "TailwindCSS", value: 1 },
-              { name: "Next.js", value: 1, linkWith: ["React", "TailwindCSS"] },
-            ],
-          },
-          {
-            name: "JS",
+            value: 2,
+            image: "https://cdn.iconscout.com/icon/free/png-256/css-alt-3628710-3029935.png",
             children: [
               {
-                name: "React",
-                children: [
-                  { name: "Next.js", value: 1 },
-                  { name: "Redux", value: 1 },
-                  { name: "Nextauth", value: 1 },
-                ],
-                linkWith: ["Next.js"],
+                name: "TailwindCSS",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png",
+                value: 3
               },
             ],
           },
-          { name: "Illustrator", value: 1 },
-          { name: "InDesign", value: 1 },
-          { name: "Photoshop", value: 1 },
-          { name: "Clip Studio", value: 1 },
-          { name: "Blender", value: 1 },
+          {
+            name: "JavaScript",
+            value: 2,
+            image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+            children: [
+              {
+                name: "React",
+                image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+                value: 3,
+                children: [
+                  {
+                    name: "Next.js",
+                    image: "https://i.postimg.cc/h40tbYqT/NextJS.png",
+                    value: 4,
+                    linkWith: ["TailwindCSS"],
+                    children: [
+                      {
+                        name: "Next-Auth",
+                        image: "https://next-auth.js.org/img/logo/logo-xs.png",
+                        value: 5
+                      },
+                    ]
+                  },
+                  {
+                    name: "Redux",
+                    image: "https://img.icons8.com/color/48/redux.png",
+                    value: 4
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
       {
-        name: "Backend",
+        name: "BACK-END",
+        value: 1,
+        showTooltip: false,
         children: [
           {
             name: "NodeJS",
+            value: 2,
+            image: "https://img.icons8.com/fluency/48/node-js.png",
             children: [
-              { name: "Express", value: 1 },
-              { name: "Passport", value: 1 },
+              {
+                name: "Express",
+                image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Status_iucn_EX_icon.svg",
+                value: 3
+              },
+              {
+                name: "Passport",
+                image: "https://images.ctfassets.net/vwq10xzbe6iz/tnwT7PN9aBmT7vgkTtGhV/940f001eb249a42904cd40e64d13c7e9/passportJS-300x300.png?h=250",
+                value: 3
+              },
+              {
+                name: "JSON Web Tokens",
+                image: "https://img.icons8.com/color/48/java-web-token.png",
+                value: 3
+              },
             ],
           },
           {
-            name: "Databases",
-            children: [
-              { name: "PostgreSQL", value: 1 },
-            ],
+            name: "PostgreSQL",
+            image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+            value: 2
           },
           {
-            name: "Image Hosting",
-            children: [
-              { name: "Cloudinary", value: 1 },
-            ],
+            name: "Cloudinary",
+            image: "https://i.postimg.cc/mZV8fbsD/cloudinary.png",
+            value: 2
           },
           {
-            name: "File Upload",
-            children: [
-              { name: "Multer", value: 1 },
-            ],
+            name: "Multer",
+            value: 2
+          },
+        ],
+      },
+      {
+        name: "OTHERS",
+        value: 1,
+        showTooltip: false,
+        children: [
+          {
+            name: "Illustrator",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/1051px-Adobe_Illustrator_CC_icon.svg.png",
+            value: 2
+          },
+          {
+            name: "InDesign",
+            image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
+            value: 2
+          },
+          {
+            name: "Photoshop",
+            image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+            value: 2
+          },
+          {
+            name: "Clip Studio Paint",
+            image: "https://upload.wikimedia.org/wikipedia/en/6/66/Clip_Studio_Paint_app_logo.png",
+            value: 2
+          },
+          {
+            name: "Blender",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png",
+            value: 2
           },
         ],
       },
     ],
   };
 
-  const [showGrafVirus, setShowGrafVirus] = useState(true);
-  const [showGrafIllustration, setShowGrafIllustration] = useState(false);
+  const [selectedChart, setSelectedChart] = useState("virus");
 
   const handleShowVirus = () => {
-    setShowGrafVirus(true);
-    setShowGrafIllustration(false);
+    setSelectedChart("virus");
   };
 
   const handleShowIllustration = () => {
-    setShowGrafVirus(false);
-    setShowGrafIllustration(true);
+    setSelectedChart("illustration");
   };
 
-  console.log("showGrafVirus", showGrafVirus)
+  const handleShowTechList = () => {
+    setSelectedChart("techList");
+  };
 
   return (
     <section id='Technologies' className='relative min-h-screen w-full flex flex-col justify-center items-center gap-4 snap-start snap-always' >
       <div className='min-h-screen w-full pl-[calc(12%)] pr-[calc(10%)] mt-56'>
         <div className='flex gap-14'>
           <h1 className="text-3xl font-semibold z-10">Technologies</h1>
-          <div className='h-full w-full flex items-center mt-1 gap-5 z-40'>
-              <Image
-                width="20"
-                height="20"
-                src={dark ? GrafVirusW : GrafVirus}
-                alt="Grafic Virus"
-                className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafVirus && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
-                onClick={handleShowVirus}
-              />
-              <Image
-                width="20"
-                height="20"
-                src={dark ? GrafIllustrationW : GrafIllustration}
-                alt="Grafic Illustration"
-                className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${showGrafIllustration && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-                onClick={handleShowIllustration} />
+          <div className="h-full w-full flex items-center mt-1 gap-5 z-40">
+            <Image
+              width="20"
+              height="20"
+              src={dark ? GrafVirusW : GrafVirus}
+              alt="Grafic Virus"
+              className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
+              onClick={handleShowVirus}
+            />
+            <Image
+              width="20"
+              height="20"
+              src={dark ? GrafIllustrationW : GrafIllustration}
+              alt="Grafic Illustration"
+              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+              onClick={handleShowIllustration}
+            />
+            <Image
+              width="20"
+              height="20"
+              src={dark ? IconsW : Icons}
+              alt="Grafic List"
+              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+              onClick={handleShowTechList}
+            />
           </div>
         </div>
       </div>
+
       <div className='absolute bottom-0 left-0 w-14 h-10 dark:bg-slate-950 z-40' />
-      {showGrafVirus ? <ChartComponent data={technologyData} /> : <ChartComponent2 data={technologyData} />}
+      
+      {selectedChart === "virus" && (
+        <ChartComponent data={technologyData} dark={dark} />
+      )}
+
+      {selectedChart === "illustration" && (
+        <ChartComponent2 data={technologyData} />
+      )}
+
+      {selectedChart === "techList" && (
+        <TechList data={technologyData} />
+      )}
+
     </section>
   );
 };

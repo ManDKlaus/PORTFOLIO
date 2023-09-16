@@ -3,7 +3,7 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5wc from "@amcharts/amcharts5/wc";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
-function TechIllustration({ dark, data }) {
+function TechIllustration({ data }) {
     useLayoutEffect(() => {
         let root = am5.Root.new("chartdiv");
 
@@ -43,8 +43,6 @@ function TechIllustration({ dark, data }) {
             })
         }, 5000)
 
-        // Data from:
-        // https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
         series.data.setAll([
             { tag: "JavaScript", weight: 64.96 },
             { tag: "HTML/CSS", weight: 56.07 },
