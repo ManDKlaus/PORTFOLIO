@@ -151,7 +151,7 @@ const Technologies = ({ dark }) => {
     ],
   };
 
-  const [selectedChart, setSelectedChart] = useState("virus");
+  const [selectedChart, setSelectedChart] = useState("techList");
 
   const handleShowVirus = () => {
     setSelectedChart("virus");
@@ -174,6 +174,14 @@ const Technologies = ({ dark }) => {
             <Image
               width="20"
               height="20"
+              src={dark ? IconsW : Icons}
+              alt="Grafic List"
+              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+              onClick={handleShowTechList}
+            />
+            <Image
+              width="20"
+              height="20"
               src={dark ? GrafVirusW : GrafVirus}
               alt="Grafic Virus"
               className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
@@ -187,30 +195,22 @@ const Technologies = ({ dark }) => {
               className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
               onClick={handleShowIllustration}
             />
-            <Image
-              width="20"
-              height="20"
-              src={dark ? IconsW : Icons}
-              alt="Grafic List"
-              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-              onClick={handleShowTechList}
-            />
           </div>
         </div>
       </div>
 
       <div className='absolute bottom-0 left-0 w-14 h-10 dark:bg-slate-950 z-40' />
-      
+
       {selectedChart === "virus" && (
         <ChartComponent data={technologyData} dark={dark} />
       )}
 
       {selectedChart === "illustration" && (
-        <ChartComponent2 data={technologyData} />
+        <ChartComponent2 />
       )}
 
       {selectedChart === "techList" && (
-        <TechList data={technologyData} />
+        <TechList dark={dark} />
       )}
 
     </section>

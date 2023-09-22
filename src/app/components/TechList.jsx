@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-function TechList() {
+function TechList({ dark }) {
 
     const imageObject = {
         HTML: "https://logos-download.com/wp-content/uploads/2017/07/HTML5_badge.png",
@@ -26,18 +26,18 @@ function TechList() {
     };
 
     return (
-        <div className="absolute left-0 w-full h-full z-0 p-44 flex flex-wrap justify-center items-center">
+        <div className="absolute left-0 w-full h-full z-0 p-44 flex flex-wrap justify-center items-center content-center">
             {Object.entries(imageObject).map(([key, imageUrl]) => (
                 <div key={key} className="m-4 group relative">
                     {imageUrl ? (
-                        <img className="w-10" src={imageUrl} alt={key} />
+                        <div className="relative">
+                            <img className="w-10" src={imageUrl} alt={key} />
+                            <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
+                                {key}
+                            </p>
+                        </div>
                     ) : (
                         <p className="indent-0">{key}</p>
-                    )}
-                    {imageUrl && (
-                        <p className="indent-0 opacity-0 text-xs group-hover:opacity-100 absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-gray-50 text-gray-950 py-1 px-2 rounded">
-                            {key}
-                        </p>
                     )}
                 </div>
             ))}
