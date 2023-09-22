@@ -8,27 +8,28 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
   return (
     <div className="relative w-full h-auto flex justify-between items-center p-4 z-10">
 
-      <Image
-        width="112"
-        height="112"
-        src="https://img.icons8.com/pulsar-line/200/forward.png"
-        onClick={onPrevPage}
-        alt="Arrow Left"
-        className="cursor-pointer h-28 mt-1 z-40 dark:invert rotate-180"
-      />
+      <div className='absolute left-0 flex items-center'>
+        <Image
+          width="112"
+          height="112"
+          src="https://img.icons8.com/pulsar-line/200/forward.png"
+          onClick={onPrevPage}
+          alt="Arrow Left"
+          className="cursor-pointer h-28 mt-1 z-40 dark:invert rotate-180"
+        />
 
-      <h3
-        className="absolute top-20 left-24 text-5xl font-bold mb-2 z-40 drop-shadow-lg"
-        onMouseEnter={() => setShowDescription(true)}
-        onMouseLeave={() => setShowDescription(false)} >
-        {title}
-      </h3>
-
+        <h3
+          className="text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-lg"
+          onMouseEnter={() => setShowDescription(true)}
+          onMouseLeave={() => setShowDescription(false)} >
+          {title}
+        </h3>
+      </div>
       {showDescription && (
         <p className="indent-0 px-2 py-1 rounded-md bg-white text-slate-950 absolute top-0 left-1/2 z-40">{description}</p>
       )}
 
-      <div className='w-full h-full flex justify-between items-end z-10'>
+      <div className='w-full h-full flex ml-20 justify-between items-end z-10'>
         <div className='flex  items-center'>
           <div className="h-auto flex ml-4">
             {technologies.map((tech) => (
