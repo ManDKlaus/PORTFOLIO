@@ -166,40 +166,36 @@ const Technologies = ({ dark }) => {
   };
 
   return (
-    <section id='Technologies' className='relative min-h-screen w-full flex flex-col justify-center items-center gap-4 snap-start snap-always' >
-      <div className='min-h-screen w-full pl-[calc(12%)] pr-[calc(10%)] mt-56'>
-        <div className='flex gap-14'>
-          <h1 className="text-3xl font-semibold z-10">Technologies</h1>
-          <div className="h-full w-full flex items-center mt-1 gap-5 z-40">
-            <Image
-              width="20"
-              height="20"
-              src={dark ? IconsW : Icons}
-              alt="Grafic List"
-              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-              onClick={handleShowTechList}
-            />
-            <Image
-              width="20"
-              height="20"
-              src={dark ? GrafVirusW : GrafVirus}
-              alt="Grafic Virus"
-              className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
-              onClick={handleShowVirus}
-            />
-            <Image
-              width="20"
-              height="20"
-              src={dark ? GrafIllustrationW : GrafIllustration}
-              alt="Grafic Illustration"
-              className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-              onClick={handleShowIllustration}
-            />
-          </div>
-        </div>
+    <section id='Technologies' className='relative min-h-screen w-full flex flex-col gap-4 snap-start snap-always z-20' >
+      <div className='h-8 w-full pl-[calc(100%/5+1.5%)] pr-[calc(100%/5)] mt-[calc(100vh/6+80px)] flex gap-4 z-30'>
+        <h1 className="mr-2 text-3xl font-semibold indent-8 z-10">Technologies</h1>
+        <Image
+          width="20"
+          height="20"
+          src={dark ? IconsW : Icons}
+          alt="Grafic List"
+          className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+          onClick={handleShowTechList}
+        />
+        <Image
+          width="20"
+          height="20"
+          src={dark ? GrafVirusW : GrafVirus}
+          alt="Grafic Virus"
+          className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
+          onClick={handleShowVirus}
+        />
+        <Image
+          width="20"
+          height="20"
+          src={dark ? GrafIllustrationW : GrafIllustration}
+          alt="Grafic Illustration"
+          className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+          onClick={handleShowIllustration}
+        />
       </div>
 
-      <div className='absolute bottom-0 left-0 w-14 h-10 dark:bg-slate-950 z-40' />
+      <div className='absolute bottom-0 left-0 w-14 h-72 dark:bg-slate-950 z-40' />
 
       {selectedChart === "virus" && (
         <ChartComponent data={technologyData} dark={dark} />

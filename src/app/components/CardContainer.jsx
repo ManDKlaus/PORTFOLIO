@@ -56,9 +56,8 @@ const CardContainer = () => {
     };
 
     return (
-        <div className='w-full h-full flex flex-col justify-center'>
-            <h2 className="text-xl font-bold mb-4">Projects</h2>
-            <div className='w-full h-full flex flex-wrap' >
+        <div className='w-full h-auto pl-[calc(12%)] pr-[calc(10%)] flex flex-col gap-4 justify-center'>
+            <div className='w-full h-[calc(100vh/4)] flex flex-wrap' >
                 {getPageData().map((project) => (
                     <ProjectCard
                         {...project}
@@ -75,7 +74,7 @@ const CardContainer = () => {
                     <button
                         key={index}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`h-2 w-2 mx-1.5 rounded-full ${index + 1 === currentPage ? 'bg-blue-500' : 'bg-gray-300'}`}
+                        className={`h-2 w-2 mx-1.5 rounded-full ${index + 1 === currentPage ? 'dark:bg-gray-300 bg-slate-800' : 'dark:bg-slate-800 bg-gray-300'}`}
                     />
                 ))}
             </div>

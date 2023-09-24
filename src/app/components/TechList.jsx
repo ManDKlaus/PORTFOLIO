@@ -26,21 +26,23 @@ function TechList({ dark }) {
     };
 
     return (
-        <div className="absolute left-0 w-full h-full z-0 p-44 flex flex-wrap justify-center items-center content-center">
-            {Object.entries(imageObject).map(([key, imageUrl]) => (
-                <div key={key} className="m-4 group relative">
-                    {imageUrl ? (
-                        <div className="relative">
-                            <img className="w-10" src={imageUrl} alt={key} />
-                            <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
-                                {key}
-                            </p>
-                        </div>
-                    ) : (
-                        <p className="indent-0">{key}</p>
-                    )}
-                </div>
-            ))}
+        <div className="absolute w-full h-full z-0 flex">
+            <div className='w-4/5 mx-auto flex flex-wrap justify-center items-center content-center' >
+                {Object.entries(imageObject).map(([key, imageUrl]) => (
+                    <div key={key} className="m-4 group relative">
+                        {imageUrl ? (
+                            <div className="relative">
+                                <img className="w-10" src={imageUrl} alt={key} />
+                                <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
+                                    {key}
+                                </p>
+                            </div>
+                        ) : (
+                            <p className="indent-0">{key}</p>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

@@ -25,12 +25,12 @@ function Contact() {
   };
 
   return (
-    <section id='Contact' className='min-h-screen w-full pl-[calc(12%)] pr-[calc(10%)] snap-start snap-always flex flex-col justify-center'>
-      <h2 className='text-3xl font-semibold mb-4'>Contact Me</h2>
+    <section id='Contact' className='relative min-h-screen w-full snap-start snap-always flex flex-col justify-center'>
+      <h2 className='ml-[calc(100%/5+10px)] text-3xl font-semibold mb-4 indent-8'>Contact Me</h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className='w-full flex flex-col gap-2 items-center text-white dark:text-gray-950' >
+        className='w-3/5 ml-[calc(100%/5+10px)] mr-auto flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
         <input
           className='w-full py-1 px-2 rounded placeholder:text-gray-400
           

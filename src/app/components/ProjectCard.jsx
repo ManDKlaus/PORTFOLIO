@@ -4,10 +4,41 @@ import Image from 'next/image'
 const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink, sourceCodeLink, dark, onPrevPage, onNextPage }) => {
 
   const [showDescription, setShowDescription] = useState(false);
+  const [showCode, setShowCode] = useState(false);
+  const [showTrial, setShowTrial] = useState(false);
 
   return (
-    <div className="relative w-full h-auto flex justify-between items-center p-4 z-10">
+    <div className="relative w-full h-full flex justify-between items-center p-4 z-10">
 
+      <div className='absolute top-[-32px] right-24 flex gap-2 ml-3 z-40'>
+        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative">
+          {showTrial && (
+            <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-15px] w-auto " >
+              Trial Version
+            </p>
+          )}
+          <img
+            src="https://img.icons8.com/pulsar-line/25/trial-version.png"
+            alt="Trial Version"
+            className={`dark:invert ${showTrial ? "" : "opacity-30" }`}
+            onMouseEnter={() => setShowTrial(true)}
+            onMouseLeave={() => setShowTrial(false)} />
+        </a>
+
+        <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative">
+          {showCode && (
+            <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-14px]" >
+              Source Code
+            </p>
+          )}
+          <img
+            src="https://img.icons8.com/pulsar-line/25/code.png"
+            alt="Source Code"
+            className={`dark:invert ${showCode ? "" : "opacity-30" }`}
+            onMouseEnter={() => setShowCode(true)}
+            onMouseLeave={() => setShowCode(false)} />
+        </a>
+      </div>
       <div className='absolute left-0 flex items-center'>
         <Image
           width="112"
@@ -26,33 +57,25 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
         </h3>
       </div>
       {showDescription && (
-        <p className="indent-0 px-2 py-1 rounded-md bg-white text-slate-950 absolute top-0 left-1/2 z-40">{description}</p>
+        <p className="indent-0 px-2 py-1 rounded bg-white text-slate-950 absolute top-0 left-1/2 z-40 "
+          style={{
+            transform: 'skewX(-15deg)',
+          }} >
+          {description}
+        </p>
       )}
 
-      <div className='w-full h-full flex ml-20 justify-between items-end z-10'>
-        <div className='flex  items-center'>
-          <div className="h-auto flex ml-4">
-            {technologies.map((tech) => (
-              <span key={tech} className="bg-gray-400 dark:bg-gray-300 rounded-md text-sm dark:text-slate-950 text-white px-2 py-1 mr-2 indent-0 shadow-inner shadow-slate-900 dark:shadow-slate-700 ">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <div className='flex flex-col justify-between'>
-            <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Live Demo
-            </a>
-            <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Source Code
-            </a>
-          </div>
-        </div>
+      <div className='w-full h-full flex ml-24 items-end z-10'>
+          {technologies.map((tech) => (
+            <span key={tech} className="bg-slate-700 dark:bg-white rounded-md text-[12px]  dark:text-slate-950 text-white px-2 mr-2 indent-0 shadow-inner shadow-black dark:shadow-slate-700 ">
+              {tech}
+            </span>
+          ))}
       </div>
       <Image
         src={imageUrl}
         alt={title}
-        className="absolute right-32 h-full w-auto rounded-md z-0 "
+        className="absolute right-32 h-full w-auto rounded-md z-0 border border-yellow-400"
         style={{
           transform: 'skewX(-15deg)',
           backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
