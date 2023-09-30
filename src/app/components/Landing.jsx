@@ -1,9 +1,7 @@
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Nicolas from "../../../public/Nicolas.jpeg"
 import Banner from "../../../public/img/dev2.png"
-import LinkedInW from "../../../public/img/LinkedInW.png"
-import GitHubW from "../../../public/img/GitHubW.png"
-import GmailW from "../../../public/img/GmailW.png"
 
 import { Emblema_One } from 'next/font/google'
 const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
@@ -12,6 +10,11 @@ function Landing({ show, showFull }) {
     return (
         <div
             className={`absolute left-0 z-50 h-full ${show ? "w-[calc(100vw-64px)]" : "w-[calc(25vw)]"} text-white rounded-tr-[15px] rounded-br-[15px] transition-width ease-in-out duration-700 cursor-pointer flex flex-col justify-center `}
+            style={{
+                backgroundImage: `url(${Banner.src})`,
+                backgroundSize: `cover`,
+                backgroundPosition: `center center`
+            }}
             onClick={showFull}
         >
             <div className='absolute top-0 right-0 w-full h-1/6 z-50 flex' >
@@ -25,29 +28,41 @@ function Landing({ show, showFull }) {
                         height={150}
                         className='rounded-lg'
                     />
-                    <div className='h-full py-4 absolute top-0 right-[-40px] flex flex-col justify-between z-50'>
+                    <div className='h-full py-2 absolute top-0 right-[-40px] flex flex-col justify-between z-50'>
                         <a href="https://www.linkedin.com/in/nicol%C3%A1sdanielmansilla/" target="_blank">
                             <Image
-                                src={LinkedInW}
+                                src="https://img.icons8.com/pulsar-line/25/linkedin.png"
                                 alt="LinkedIn"
+                                width={25}
                                 height={25}
-                                className='drop-shadow cursor-pointer'
+                                className='drop-shadow cursor-pointer invert'
                             />
                         </a>
                         <a href="https://github.com/ManDKlaus" target="_blank">
                             <Image
-                                src={GitHubW}
+                                src="https://img.icons8.com/pulsar-line/48/github.png"
                                 alt="GitHub"
+                                width={25}
                                 height={25}
-                                className='drop-shadow cursor-pointer'
+                                className='drop-shadow cursor-pointer invert'
                             />
                         </a>
                         <a href="mailto:mansilland@gmail.com" target="_blank">
                             <Image
-                                src={GmailW}
+                                src="https://img.icons8.com/pulsar-line/25/gmail-new.png"
                                 alt="Gmail"
+                                width={25}
                                 height={25}
-                                className='drop-shadow cursor-pointer'
+                                className='drop-shadow cursor-pointer invert'
+                            />
+                        </a>
+                        <a href="https://wa.me/qr/2X77DSSQIW2EO1" target="_blank">
+                            <Image
+                                src="https://img.icons8.com/pulsar-line/25/whatsapp.png"
+                                alt="WhatsApp"
+                                width={25}
+                                height={25}
+                                className='drop-shadow cursor-pointer invert'
                             />
                         </a>
                     </div>
@@ -56,17 +71,9 @@ function Landing({ show, showFull }) {
                     <span className="text-yellow-400">Nicol&aacute;s Daniel </span>
                     Mansilla
                 </h1>
-                <h2 className=''>
+                <h2 className='mx-4'>
                     <span className='font-bold'>Passionate Full Stack Developer</span> | Crafting Innovative Solutions for Seamless User Experiences | JS | HTML | CSS | React | Redux | NextJS | TailwindCSS | NodeJS | Express | PostgreSQL | Passport | Cloudinary | Multer</h2>
             </div>
-            <Image
-                src={Banner}
-                alt="Developer"
-                layout="fill"
-                objectFit={`${show ? "fill" : "cover"}`}
-                objectPosition="center center"
-                className={`absolute left-0 ${show ? "h-auto w-full" : "h-full w-screen"} rounded-tr-[15px] rounded-br-[15px] brightness-[.9]`}
-            />
             <div className='absolute bottom-0 right-0 w-full h-1/6 z-50 flex' >
                 <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg' />
             </div>

@@ -19,21 +19,27 @@ function Home() {
   const [dark, setDark] = useState(true);
 
   useEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setDark(true)
-    } else {
-      setDark(false)
-    }
+    setTimeout(() => {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        setDark(true)
+      } else {
+        setDark(false)
+      }
+    }, 300);
+    localStorage.theme = dark ? 'light' : 'dark';
   }, [])
 
   const showDark = () => {
-    setDark(!dark);
+    setTimeout(() => {
+      setDark(!dark);
+    }, 300);
+    localStorage.theme = dark ? 'light' : 'dark';
   };
 
   return (
-    <main className={`relative h-screen w-screen flex overflow-hidden transition-dark text-gray-900 text-sm duration-1000 ${dark && "dark text-white select-none"}`}>
+    <main className={`relative h-screen w-screen flex overflow-hidden transition-dark text-sm duration-1000 select-none ${dark ? "dark text-slate-200" : "text-slate-950"}`}>
       <div className='absolute top-[-50px] right-16 w-[calc(100vw-58px-100vw/4)] h-[calc(100vh/6+50px)] z-40 flex flex-col mr-2' >
-        <div className='absolute w-[calc(100%-20px)] h-[calc(100%+50px)] bg-gradient-to-l from-white via-white to-gray-300 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 blur-xl ' />
+        <div className='absolute w-[calc(100%-20px)] h-[calc(100%+50px)] bg-gradient-to-l from-white via-white to-gray-300 dark:from-slate-800 dark:via-slate-950 dark:to-slate-950 blur-xl ' />
         <div className='w-2/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg mt-auto' />
       </div>
       <Landing show={show} showFull={showFull} />

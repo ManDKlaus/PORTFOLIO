@@ -20,7 +20,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           <img
             src="https://img.icons8.com/pulsar-line/25/trial-version.png"
             alt="Trial Version"
-            className={`dark:invert ${showTrial ? "" : "opacity-30" }`}
+            className={`dark:invert ${showTrial ? "" : "opacity-30"}`}
             onMouseEnter={() => setShowTrial(true)}
             onMouseLeave={() => setShowTrial(false)} />
         </a>
@@ -34,7 +34,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           <img
             src="https://img.icons8.com/pulsar-line/25/code.png"
             alt="Source Code"
-            className={`dark:invert ${showCode ? "" : "opacity-30" }`}
+            className={`dark:invert ${showCode ? "" : "opacity-30"}`}
             onMouseEnter={() => setShowCode(true)}
             onMouseLeave={() => setShowCode(false)} />
         </a>
@@ -56,35 +56,36 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           {title}
         </h3>
       </div>
-      {showDescription && (
-        <p className="indent-0 px-2 py-1 rounded bg-white text-slate-950 absolute top-0 left-1/2 z-40 "
+      <div className='h-full w-full relative'>
+        <ul className='absolute bottom-0 w-1/2 h-10 flex flex-wrap gap-1 ml-24 items-end z-10'>
+          {technologies.map((tech) => (
+            <li key={tech} className="bg-slate-700 dark:bg-white rounded-md text-[12px]  dark:text-slate-950 text-white px-2 indent-0 shadow-inner shadow-black dark:shadow-slate-700 ">
+              {tech}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className='absolute right-32 h-full w-auto' >
+        {showDescription && (
+          <p className="indent-0 rounded text-white absolute left-1/3 top-1/2 z-40 custom-shadow-text w-1/2"
+            style={{
+              transform: 'translate(10%, -50%) skewX(-15deg)', // Esto centra la descripción
+            }}>
+            {description}
+          </p>
+        )}
+        <Image
+          src={imageUrl}
+          alt={title}
+          className={`h-full w-full rounded-md z-0 border border-yellow-400 ${showDescription && "grayscale opacity-30"}`}
           style={{
             transform: 'skewX(-15deg)',
-          }} >
-          {description}
-        </p>
-      )}
-
-      <div className='w-full h-full flex ml-24 items-end z-10'>
-          {technologies.map((tech) => (
-            <span key={tech} className="bg-slate-700 dark:bg-white rounded-md text-[12px]  dark:text-slate-950 text-white px-2 mr-2 indent-0 shadow-inner shadow-black dark:shadow-slate-700 ">
-              {tech}
-            </span>
-          ))}
+            backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
+            maskImage: 'linear-gradient(to right, transparent, black, black)'
+          }}
+        />
       </div>
-      <Image
-        src={imageUrl}
-        alt={title}
-        className="absolute right-32 h-full w-auto rounded-md z-0 border border-yellow-400"
-        style={{
-          transform: 'skewX(-15deg)',
-          backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
-          maskImage: 'linear-gradient(to right, transparent, black, black)'
-        }}
-      />
-
-
       <Image
         width="112"
         height="112"

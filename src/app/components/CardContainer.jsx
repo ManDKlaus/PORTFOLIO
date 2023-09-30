@@ -8,7 +8,7 @@ const projects = [
     {
         id: 1,
         title: 'Portfolio',
-        description: 'Descripción del proyecto 1.',
+        description: 'This website showcases my work as a Full Stack Developer, highlighting projects that reflect my passion for creating user-friendly web applications with cutting-edge technologies.',
         technologies: ['Next.js', 'Tailwind CSS', 'Express'],
         imageUrl: Banner,
         liveDemoLink: 'https://portfolio-git-master-mandklaus.vercel.app',
@@ -16,10 +16,37 @@ const projects = [
     },
     {
         id: 2,
-        title: '1337 Hardware',
-        description: 'Descripción del proyecto 2.',
-        technologies: ['Vue.js', 'MongoDB', 'Express'],
-        imageUrl: { Banner },
+        title: 'E-commerce',
+        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
+        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+        imageUrl: Banner,
+        liveDemoLink: 'enlace del demo 2',
+        sourceCodeLink: 'enlace del código fuente 2',
+    },
+    {
+        id: 3,
+        title: 'API Insights',
+        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
+        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+        imageUrl: Banner,
+        liveDemoLink: 'enlace del demo 2',
+        sourceCodeLink: 'enlace del código fuente 2',
+    },
+    {
+        id: 4,
+        title: 'Game',
+        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
+        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+        imageUrl: Banner,
+        liveDemoLink: 'enlace del demo 2',
+        sourceCodeLink: 'enlace del código fuente 2',
+    },
+    {
+        id: 5,
+        title: 'Red Social',
+        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
+        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+        imageUrl: Banner,
         liveDemoLink: 'enlace del demo 2',
         sourceCodeLink: 'enlace del código fuente 2',
     },
@@ -28,6 +55,7 @@ const projects = [
 const CardContainer = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(projects.length / 1);
+    const [currentOffset, setCurrentOffset] = useState(0);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -44,6 +72,8 @@ const CardContainer = () => {
             setCurrentPage(projects.length); // Vuelve al último proyecto si ya estás en el primero
         } else {
             setCurrentPage(currentPage - 1);
+            const newOffset = currentOffset + 1;
+            setCurrentOffset(newOffset > 0 ? newOffset : projects.length - 1);
         }
     };
 
@@ -52,12 +82,14 @@ const CardContainer = () => {
             setCurrentPage(1); // Vuelve al primer proyecto si ya estás en el último
         } else {
             setCurrentPage(currentPage + 1);
+            const newOffset = currentOffset - 1;
+            setCurrentOffset(newOffset < projects.length - 1 ? newOffset : 0);
         }
     };
 
     return (
         <div className='w-full h-auto pl-[calc(12%)] pr-[calc(10%)] flex flex-col gap-4 justify-center'>
-            <div className='w-full h-[calc(100vh/4)] flex flex-wrap' >
+            <div className='w-full h-[calc(100vh/4)] flex flex-wrap ' >
                 {getPageData().map((project) => (
                     <ProjectCard
                         {...project}

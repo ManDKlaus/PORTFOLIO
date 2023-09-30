@@ -10,6 +10,8 @@ import TechList from './TechList';
 import dynamic from 'next/dynamic';
 const ChartComponent = dynamic(() => import('../components/TechTreeChart'), { ssr: false });
 const ChartComponent2 = dynamic(() => import('../components/TechIllustration'), { ssr: false });
+import { Emblema_One } from 'next/font/google'
+const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
 
 const Technologies = ({ dark }) => {
   // Define los datos del gráfico
@@ -167,33 +169,39 @@ const Technologies = ({ dark }) => {
 
   return (
     <section id='Technologies' className='relative min-h-screen w-full flex flex-col gap-4 snap-start snap-always z-20' >
-      <div className='h-8 w-full pl-[calc(100%/5+1.5%)] pr-[calc(100%/5)] mt-[calc(100vh/6+80px)] flex gap-4 z-30'>
-        <h1 className="mr-2 text-3xl font-semibold indent-8 z-10">Technologies</h1>
-        <Image
-          width="20"
-          height="20"
-          src={dark ? IconsW : Icons}
-          alt="Grafic List"
-          className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-          onClick={handleShowTechList}
-        />
-        <Image
-          width="20"
-          height="20"
-          src={dark ? GrafVirusW : GrafVirus}
-          alt="Grafic Virus"
-          className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
-          onClick={handleShowVirus}
-        />
-        <Image
-          width="20"
-          height="20"
-          src={dark ? GrafIllustrationW : GrafIllustration}
-          alt="Grafic Illustration"
-          className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
-          onClick={handleShowIllustration}
-        />
-      </div>
+      <h1 className={`mt-[calc(100vh/6+80px)] indent-3 text-white dark:text-slate-950 opacity-80 text-[80px] text-center font-semibold ${emblemaOne.className} leading-7 custom-text-shadow z-40`} >Technologies</h1>
+      <ul className='absolute right-4 h-full w-auto flex flex-col gap-4 justify-center z-40'>
+        <li>
+          <Image
+            width="20"
+            height="20"
+            src={dark ? IconsW : Icons}
+            alt="Grafic List"
+            className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+            onClick={handleShowTechList}
+          />
+        </li>
+        <li>
+          <Image
+            width="20"
+            height="20"
+            src={dark ? GrafVirusW : GrafVirus}
+            alt="Grafic Virus"
+            className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300"}`}
+            onClick={handleShowVirus}
+          />
+        </li>
+        <li>
+          <Image
+            width="20"
+            height="20"
+            src={dark ? GrafIllustrationW : GrafIllustration}
+            alt="Grafic Illustration"
+            className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 shadow-md  shadow-yellow-300"}`}
+            onClick={handleShowIllustration}
+          />
+        </li>
+      </ul>
 
       <div className='absolute bottom-0 left-0 w-14 h-72 dark:bg-slate-950 z-40' />
 

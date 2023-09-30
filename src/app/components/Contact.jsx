@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Image from 'next/image'
 import ContactW from "../../../public/img/ContactW.png"
+import { Emblema_One } from 'next/font/google'
+const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
 
 function Contact() {
   const [state, handleSubmit] = useForm("mleydpeo");
@@ -26,13 +28,13 @@ function Contact() {
 
   return (
     <section id='Contact' className='relative min-h-screen w-full snap-start snap-always flex flex-col justify-center'>
-      <h2 className='ml-[calc(100%/5+10px)] text-3xl font-semibold mb-4 indent-8'>Contact Me</h2>
+      <h2 className={`indent-6 text-white dark:text-slate-950 opacity-70 text-[80px] text-center font-semibold ${emblemaOne.className} leading-[80px] custom-text-shadow`} >Contact Me</h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
         className='w-3/5 ml-[calc(100%/5+10px)] mr-auto flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
         <input
-          className='w-full py-1 px-2 rounded placeholder:text-gray-400
+          className='w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           
           bg-gradient-to-l 
           
@@ -49,7 +51,7 @@ function Contact() {
           required
         />
         <input
-          className='w-full py-1 px-2 rounded placeholder:text-gray-400
+          className='w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           
           bg-gradient-to-l
           
@@ -71,7 +73,7 @@ function Contact() {
           errors={state.errors}
         />
         <input
-          className='w-full py-1 px-2 rounded placeholder:text-gray-400 
+          className='w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           
           bg-gradient-to-l
           
@@ -88,7 +90,7 @@ function Contact() {
           required
         />
         <textarea
-          className='w-full py-1 px-2 rounded placeholder:text-gray-400
+          className='w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           
           bg-gradient-to-bl
           
