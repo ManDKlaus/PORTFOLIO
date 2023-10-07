@@ -8,8 +8,9 @@ const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
 
 function Landing({ show, showFull }) {
     return (
-        <div
-            className={`absolute left-0 z-50 h-full ${show ? "w-[calc(100vw-64px)]" : "w-[calc(25vw)]"} text-white rounded-tr-[15px] rounded-br-[15px] transition-width ease-in-out duration-700 cursor-pointer flex flex-col justify-center `}
+        <section
+            id='Landing'
+            className={`relative lg:absolute left-0 z-40 h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-64px)]" : "lg:w-[calc(25vw)] lg:min-w-[330px]"} text-white rounded-b-xl lg:rounded-r-xl transition-width ease-in-out duration-700 lg:cursor-pointer flex flex-col justify-center py-24 lg:py-0`}
             style={{
                 backgroundImage: `url(${Banner.src})`,
                 backgroundSize: `cover`,
@@ -17,7 +18,7 @@ function Landing({ show, showFull }) {
             }}
             onClick={showFull}
         >
-            <div className='absolute top-0 right-0 w-full h-1/6 z-50 flex' >
+            <div className='absolute top-0 right-0 w-full h-[calc(100vh/10)] z-50 flex' >
                 <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg mt-auto ml-auto' />
             </div>
             <div className={`w-80 mx-auto z-50 flex flex-col justify-center items-center text-center custom-shadow-text`} >
@@ -74,10 +75,10 @@ function Landing({ show, showFull }) {
                 <h2 className='mx-4'>
                     <span className='font-bold'>Passionate Full Stack Developer</span> | Crafting Innovative Solutions for Seamless User Experiences | JS | HTML | CSS | React | Redux | NextJS | TailwindCSS | NodeJS | Express | PostgreSQL | Passport | Cloudinary | Multer</h2>
             </div>
-            <div className='absolute bottom-0 right-0 w-full h-1/6 z-50 flex' >
+            <div className='absolute bottom-0 right-0 w-full h-[calc(100vh/10)] z-50 flex' >
                 <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg' />
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -7,22 +7,25 @@ import Contact from './Contact'
 
 function Content({ dark }) {
     return (
-        <div className='absolute top-0 right-16
+        <section
+            id='Content'
+            className={`lg:ml-[322px]
 
-        w-[calc(100vw-50px-calc(100vw/4))] h-full
+            w-full lg:w-[calc(100vw-385px)]
 
-        rounded-tr-[15px] rounded-br-[15px]
+            lg:rounded-r-xl
 
-        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-white to-gray-500 dark:from-slate-800 dark:via-slate-950 dark:to-slate-950
+            lg:bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "lg:from-white lg:via-white lg:to-gray-500" }
         
-        flex flex-col items-center
+            flex flex-col items-center
 
-        overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y'>
+            overflow-hidden lg:overflow-y-auto custom-scrollbar lg:scroll-smooth lg:snap-mandatory lg:snap-y`}
+        >
             <About />
             <Projects />
             <Technologies dark={dark} />
             <Contact />
-        </div>
+        </section>
     )
 }
 

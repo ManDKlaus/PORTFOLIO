@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TechList({ dark }) {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Simula una carga de datos. Puedes reemplazar esto con tu lógica de carga real.
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 750); // Cambia el tiempo según tus necesidades
+    }, []);
 
     const imageObject = {
         HTML: "https://logos-download.com/wp-content/uploads/2017/07/HTML5_badge.png",
@@ -26,22 +34,29 @@ function TechList({ dark }) {
     };
 
     return (
-        <div className="absolute w-full h-full z-0 flex">
+        <div className="lg:absolute w-full h-full z-0 flex">
             <div className='w-4/5 mx-auto flex flex-wrap justify-center items-center content-center' >
-                {Object.entries(imageObject).map(([key, imageUrl]) => (
-                    <div key={key} className="m-4 group relative">
-                        {imageUrl ? (
-                            <div className="relative">
-                                <img className="w-10" src={imageUrl} alt={key} />
-                                <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
-                                    {key}
-                                </p>
-                            </div>
-                        ) : (
-                            <p className="indent-0">{key}</p>
-                        )}
-                    </div>
-                ))}
+                {isLoading ? (
+                    Object.keys(imageObject).map((key) => (
+                        <div className="w-10 h-10 bg-gray-300 rounded animate-pulse m-4" />
+                    ))
+                ) : (
+                    // Renderiza las imágenes y nombres cuando isLoading es false
+                    Object.entries(imageObject).map(([key, imageUrl]) => (
+                        <div key={key} className="m-4 group relative">
+                            {imageUrl ? (
+                                <div className="relative">
+                                    <img className="w-10" src={imageUrl} alt={key} />
+                                    <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
+                                        {key}
+                                    </p>
+                                </div>
+                            ) : (
+                                <p className="indent-0">{key}</p>
+                            )}
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     )

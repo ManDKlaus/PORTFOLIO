@@ -88,8 +88,8 @@ const CardContainer = () => {
     };
 
     return (
-        <div className='w-full h-auto pl-[calc(12%)] pr-[calc(10%)] flex flex-col gap-4 justify-center'>
-            <div className='w-full h-[calc(100vh/4)] flex flex-wrap ' >
+        <div className='w-full h-auto px-4 md:pl-[calc(12%)] md:pr-[calc(10%)] flex flex-col gap-4 justify-center'>
+            <div className='w-full h-32 lg:h-[calc(100vh/4)]' >
                 {getPageData().map((project) => (
                     <ProjectCard
                         {...project}

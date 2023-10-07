@@ -227,7 +227,7 @@ function TechTreeChart({ data, dark }) {
   }, [data]); // Add data to the dependency array
 
   return (
-    <div id="chartdiv" className='absolute top-[calc(100vh/6-50px)] w-full h-[calc(100vh/5*4)] z-0' />
+    <div id="chartdiv" className='absolute top-0 lg:top-[calc(100vh/6-50px)] w-full h-full lg:h-[calc(100vh/5*4)] z-0' />
   );
 }
 

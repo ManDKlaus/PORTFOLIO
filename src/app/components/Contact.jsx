@@ -27,12 +27,12 @@ function Contact() {
   };
 
   return (
-    <section id='Contact' className='relative min-h-screen w-full snap-start snap-always flex flex-col justify-center'>
-      <h2 className={`indent-6 text-white dark:text-slate-950 opacity-70 text-[80px] text-center font-semibold ${emblemaOne.className} leading-[80px] custom-text-shadow`} >Contact Me</h2>
+    <section id='Contact' className='relative h-auto lg:min-h-screen w-full mb-8 lg:mb-0 snap-start snap-always flex flex-col justify-center'>
+      <h2 className={`lg:indent-6 text-white dark:text-slate-950 opacity-70  text-4xl lg:text-[80px] text-center font-semibold ${emblemaOne.className} leading-[80px] custom-text-shadow`} >Contact Me</h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className='w-3/5 ml-[calc(100%/5+10px)] mr-auto flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
+        className='w-3/5 mx-auto lg:ml-[calc(100%/5+10px)] flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
         <input
           className='w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           
