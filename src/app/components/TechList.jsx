@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 function TechList({ dark }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -35,10 +36,10 @@ function TechList({ dark }) {
 
     return (
         <div className="lg:absolute w-full h-full z-0 flex">
-            <div className='w-4/5 mx-auto flex flex-wrap justify-center items-center content-center' >
+            <div className='w-4/5 lg:w-[600px] mx-auto flex flex-wrap justify-center items-center content-center' >
                 {isLoading ? (
                     Object.keys(imageObject).map((key) => (
-                        <div className="w-10 h-10 bg-gray-300 rounded animate-pulse m-4" />
+                        <div key={key} className="w-10 h-10 bg-gray-300 rounded animate-pulse m-4" />
                     ))
                 ) : (
                     // Renderiza las imágenes y nombres cuando isLoading es false
@@ -46,7 +47,7 @@ function TechList({ dark }) {
                         <div key={key} className="m-4 group relative">
                             {imageUrl ? (
                                 <div className="relative">
-                                    <img className="w-10" src={imageUrl} alt={key} />
+                                    <Image height={25} width={25} className="w-10" src={imageUrl} alt={key} />
                                     <p className="indent-0 hidden text-xs absolute bottom-[calc(100%+2px)] left-1/2 transform -translate-x-1/2 bg-slate-600 text-white dark:bg-gray-50 dark:text-gray-950 py-1 px-2 rounded group-hover:block">
                                         {key}
                                     </p>
