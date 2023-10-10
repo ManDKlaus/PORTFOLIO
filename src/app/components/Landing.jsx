@@ -10,11 +10,15 @@ function Landing({ show, showFull }) {
     return (
         <section
             id='Landing'
-            className={`relative lg:absolute left-0 z-40 h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-64px)]" : "lg:w-[calc(25vw)] lg:min-w-[330px]"} text-white rounded-b-xl lg:rounded-r-xl transition-width ease-in-out duration-700 lg:cursor-pointer flex flex-col justify-center py-24 lg:py-0`}
+            className={`relative lg:absolute left-0 z-50 
+            
+            h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-4rem)]" : "lg:w-[330px]"}
+            
+            flex flex-col justify-center py-24 lg:py-0
+            
+            text-white rounded-b-xl lg:rounded-r-xl transition-width ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
             style={{
                 backgroundImage: `url(${Banner.src})`,
-                backgroundSize: `cover`,
-                backgroundPosition: `center center`
             }}
             onClick={showFull}
         >

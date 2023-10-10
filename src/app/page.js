@@ -39,26 +39,52 @@ function Home() {
 
   return (
     <main
-      className={`relative h-[calc(100vh-4rem)] lg:h-screen w-screen lg:flex mb-16 lg:mb-0 lg:mt-0 overflow-auto lg:overflow-y-hidden transition-dark text-sm duration-1000 select-none 
+      className={`relative 
       
-      bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))]  ${dark ? "from-slate-800 via-slate-950 to-slate-950" : "from-white via-white to-gray-600"}
+        h-[calc(100vh-4rem)] lg:h-screen w-screen lg:flex  mb-16 lg:mb-0 lg:mt-0 overflow-auto lg:overflow-y-hidden transition-dark text-sm duration-1000 select-none 
       
-      lg:bg-gradient-to-t ${dark ? "dark text-slate-200 lg:from-gray-100 lg:to-white" : "text-slate-950 lg:from-slate-950 lg:via-slate-950 lg:to-slate-600"}`}
+        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))]  ${dark ? "from-slate-800 via-slate-950 to-slate-950" : "from-white via-white to-gray-600"}
+      
+        lg:bg-gradient-to-t ${dark ? "dark text-slate-200 lg:from-gray-100 lg:to-white" : "text-slate-950 lg:from-slate-950 lg:via-slate-950 lg:to-slate-600"}`}
     >
-      <div className='invisible lg:visible absolute top-[-50px] right-16 w-[calc(75vw-58px)] h-[calc(100vh/10+50px)] z-40 invisible lg:visible flex flex-col mr-2' >
-        <div className={`absolute right-0 w-[calc(100%-20px)] h-full bg-gradient-to-l ${ dark ? "dark:from-slate-800 dark:via-slate-950 dark:to-slate-950" : "from-white via-white to-gray-300" } blur-sm `} />
-        <div className={`absolute right-0 w-[calc(100%-20px)] h-[calc(100%+50px)] bg-gradient-to-l ${ dark ? "dark:from-slate-800 dark:via-slate-950 dark:to-slate-950" : "from-white via-white to-gray-300" } blur-xl `} />
-        <div className='w-2/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg mt-auto' />
+      <div
+        className={`absolute -top-16 right-16 z-50 
+      
+          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[320px] pr-[6px] 
+      
+          invisible lg:visible
+        
+          bg-gradient-to-l ${dark ? "dark:from-slate-800 dark:via-slate-950 dark:to-slate-950" : "from-white via-white to-gray-400"} 
+      
+          flex flex-col`}
+      >
+        <div
+          className='w-2/5 h-[1px] z-50 
+        
+          mt-auto bg-yellow-400 rounded shadow-lg'
+        />
       </div>
       <ModeButton dark={dark} showDark={showDark} />
       <Landing show={show} showFull={showFull} />
       <Content dark={dark} />
       <NavBar falseFull={falseFull} dark={dark} />
-      <div className='invisible lg:visible absolute bottom-0 right-16 w-[calc(75vw-58px)] h-[calc(100vh/10)] z-30 invisible lg:visible flex flex-col mr-2' >
-        <div className={`absolute bottom-0 right-3 w-[calc(100%-20px)] h-1/3 ${dark ? "bg-slate-950" : "bg-gradient-to-l from-gray-200  to-gray-400"} `} />
-        <div className={`absolute bottom-0 right-2 w-[calc(100%-20px)] h-2/3 ${dark ? "bg-slate-950" : "bg-gradient-to-l from-gray-300  to-gray-400"} blur-sm `} />
-        <div className={`absolute -top-10 right-1 w-[calc(100%-20px)] h-[calc(100%+4rem)] ${dark ? "bg-slate-950" : "bg-gradient-to-l from-gray-300 via-gray-300 to-gray-500"} blur-xl`} />
-        <div className='w-2/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg ml-auto' />
+      <div
+        className={`absolute bottom-0 right-16 z-40
+      
+          w-[calc(100vw-4rem)] h-[calc(100vh/10)] pl-[320px] pr-[6px] 
+
+          ${dark ? "bg-slate-950" : ""}
+        
+          invisible lg:visible flex flex-col mr-2`}
+      >
+        <div
+          className='w-2/5 h-[1px] z-40 
+        
+            ml-auto bg-yellow-400 rounded shadow-lg'
+        />
+        {!dark && <div 
+          className="absolute w-full h-[calc(100vh/10+4.8rem)] -bottom-16 right-0 bg-gradient-to-r from-gray-500 to-gray-200 blur"
+        />}
       </div>
     </main>
   );
