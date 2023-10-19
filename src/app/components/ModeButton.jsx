@@ -17,7 +17,7 @@ function ModeButton({ dark, showDark }) {
   };
 
   return (
-    <button className="fixed top-[calc(100vh/10)] lg:top-0 right-0 w-16 h-16 z-50 bg-slate-500 dark:bg-white rounded-l-lg lg:bg-transparent" onClick={handleJutsu}>
+    <button className="fixed top-[calc(100vh/10)] lg:top-0 right-0 w-16 h-16 z-50 bg-slate-500 dark:bg-white rounded-l-lg lg:bg-transparent " onClick={handleJutsu}>
       <Image
         width="25"
         height="25"

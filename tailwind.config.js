@@ -20,10 +20,26 @@ module.exports = {
         'xs': '475px',
         ...defaultTheme.screens,
       },
+      animation: {
+        'moveClouds': 'move 6s linear infinite',
+      },
+      keyframes: {
+        move: {
+          '0%': {
+            opacity: 0,
+            transform: 'scale(1)',
+          },
+          '25%, 75%': {
+            opacity: .08,
+          },
+          '100%': {
+            opacity: 0,
+            transform: 'scale(3)',
+          },
+        },
+      },
     },
   },
-  plugins: [    
-    require('tailwindcss-animated')
-  ],
+  plugins: [],
   darkMode: 'class',
 }

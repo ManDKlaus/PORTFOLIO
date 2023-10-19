@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink, sourceCodeLink, dark, onPrevPage, onNextPage }) => {
 
-  const [showDescription, setShowDescription] = useState(false);
   const [showCode, setShowCode] = useState(false);
   const [showTrial, setShowTrial] = useState(false);
 
@@ -50,8 +49,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
         />
         <h3
           className="w-full text-3xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-lg"
-          onMouseEnter={() => setShowDescription(true)}
-          onMouseLeave={() => setShowDescription(false)} >
+        >
           {title}
         </h3>
         <Image
@@ -63,7 +61,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert "
         />
         <p
-          className={`${!showDescription && "invisible"} indent-0 rounded  absolute -bottom-48 z-40 custom-shadow-text w-2/3 h-auto`}
+          className={`indent-0 rounded  absolute -bottom-48 z-40 custom-shadow-text w-2/3 h-auto`}
         >
           {description}
         </p>
@@ -72,7 +70,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
         <Image
           src={imageUrl}
           alt={title}
-          className={`h-full w-full rounded-md z-0 border border-yellow-400 ${showDescription && "grayscale opacity-30"}`}
+          className={`h-full w-full rounded-md z-0 border border-yellow-400 `}
           style={{
             transform: 'skewX(-15deg)',
             backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',

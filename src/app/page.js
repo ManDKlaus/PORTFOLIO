@@ -6,6 +6,7 @@ import Content from './components/Content';
 import NavBar from './components/NavBar';
 import ModeButton from './components/ModeButton';
 import Cursor from './components/Cursor';
+import Clouds from './components/Clouds';
 
 function Home() {
   const [show, setShow] = useState(true);
@@ -38,7 +39,11 @@ function Home() {
     localStorage.theme = dark ? 'dark' : 'light';
   };
 
-  
+  const mask = {
+    "--mask": `linear-gradient(to top, transparent, black)`,
+    WebkitMask: `var(--mask)`,
+    mask: `var(--mask)`,
+  };
 
   useEffect(() => {
     const handleMousemove = (e) => {
@@ -54,6 +59,8 @@ function Home() {
       window.removeEventListener('mousemove', handleMousemove);
     };
   }, []);
+
+  const lumos = [6, 1.8];
 
   return (
     <main
@@ -71,23 +78,11 @@ function Home() {
         cursor: `url("/img/Cursor.png"), auto`,
       }}
     >
-
-      <Cursor
-        transparent={15}
-      />
-      <Cursor
-        transparent={7}
-      />
-      <Cursor
-        transparent={3}
-      />
-      <Cursor
-        transparent={1}
-      />
+      {dark && <Clouds />}
       <div
-        className={`absolute -top-16 right-16 z-40 
+        className={`absolute -top-16 right-16 z-20 
       
-          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[320px] pr-[6px] 
+          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[320px] pr-[6px]
       
           invisible lg:visible
         
@@ -101,18 +96,26 @@ function Home() {
           mt-auto bg-yellow-400 rounded shadow-lg'
         />
       </div>
+      {lumos.map((lumos, index) => (
+        <Cursor
+          key={index}
+          transparent={lumos}
+        />
+      ))}
+      <ModeButton dark={dark} showDark={showDark} />
+      <Landing show={show} showFull={showFull} />
+      <Content dark={dark} />
+      <NavBar falseFull={falseFull} dark={dark} />
       <div
-      id='este'
-        className={`absolute bottom-0 right-16 z-40
+        id='este'
+        className={`absolute bottom-0 right-16 z-0
       
           w-[calc(100vw-4rem-320px)] h-[calc(100vh/10)] ml-[320px] 
 
-          ${dark ? "bg-slate-950" : ""}
+          ${dark ? "bg-slate-950" : "bg-transparent"}
         
           invisible lg:visible flex flex-col mr-2`}
-          style={{
-            maskImage: `linear-gradient(to top, transparent, black)`, 
-          }}
+        style={dark ? {} : { mask }}
       >
         <div
           className='w-2/5 h-[1px] z-40 
@@ -120,10 +123,6 @@ function Home() {
             ml-auto bg-yellow-400 rounded shadow-lg'
         />
       </div>
-      <ModeButton dark={dark} showDark={showDark} />
-      <Landing show={show} showFull={showFull} />
-      <Content dark={dark} />
-      <NavBar falseFull={falseFull} dark={dark} />
     </main >
   );
 }

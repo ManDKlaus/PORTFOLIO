@@ -10,13 +10,13 @@ function Landing({ show, showFull }) {
     return (
         <section
             id='Landing'
-            className={`relative lg:absolute left-0 z-50 
+            className={`relative lg:absolute left-0 right-0 top-0 bottom-0 z-50 
             
             h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-4rem)]" : "lg:w-[330px]"}
             
             flex flex-col justify-center py-24 lg:py-0
             
-            text-white rounded-b-xl lg:rounded-r-xl transition-width ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
+            text-white transition-width ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
             style={{
                 backgroundImage: `url(${Banner.src})`,
             }}
