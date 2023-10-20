@@ -21,10 +21,11 @@ module.exports = {
         ...defaultTheme.screens,
       },
       animation: {
-        'moveClouds': 'move 6s linear infinite',
+        'moveClouds': 'moveClouds 6s linear infinite',
+        'moveGout': 'moveGout 6s linear infinite',
       },
       keyframes: {
-        move: {
+        moveClouds: {
           '0%': {
             opacity: 0,
             transform: 'scale(1)',
@@ -35,6 +36,30 @@ module.exports = {
           '100%': {
             opacity: 0,
             transform: 'scale(3)',
+          },
+        },
+        moveGout: {
+          '0%': {
+            backgroundImage: "url(https://img.icons8.com/color/48/bay-leaf.png)",
+            backgroundSize: "cover",
+            right: "-20px",
+            transform: "rotate(0deg) translateX(100px)",
+            filter: "hue-rotate(0deg) contrast(1)",
+          },
+          "20%": {
+            filter:"hue-rotate(60deg)",
+          },
+          '50%': {
+            backgroundImage: "url(https://img.icons8.com/color/48/bay-leaf.png)",
+            backgroundSize: "cover",
+            transform: "rotate(180deg) translateX(-100px)",
+          },
+          '100%': {
+            backgroundImage: "url(https://img.icons8.com/color/48/bay-leaf.png)",
+            backgroundSize: "cover",
+            right: "100vw",
+            transform: "rotate(360deg) translateX(200px)",
+            filter: "hue-rotate(0deg) contrast(1)",
           },
         },
       },

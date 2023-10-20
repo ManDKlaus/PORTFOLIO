@@ -15,7 +15,7 @@ function Cursor({ transparent }) {
     return (
         <div
             id='hero'
-            className={`absolute right-0 top-0 z-50 w-screen h-screen bg-white/30 brightness-150 pointer-events-none `}
+            className={`hidden lg:block absolute left-0 top-0 z-50 w-screen h-screen bg-white/30 brightness-150 pointer-events-none `}
             style={style}
         />
     )

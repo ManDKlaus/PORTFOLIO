@@ -35,7 +35,7 @@ function TechList({ dark }) {
     };
 
     return (
-        <div className='w-4/5 lg:w-[600px] mx-auto mt-16 flex flex-wrap justify-center items-center content-center' >
+        <div className='absolute top-0 left-0 h-full w-full px-12 lg:px-32 flex flex-wrap justify-center items-center content-center' >
             {isLoading ? (
                 Object.keys(imageObject).map((key) => (
                     <div key={key} className="w-10 h-10 bg-gray-300 rounded animate-pulse m-4" />

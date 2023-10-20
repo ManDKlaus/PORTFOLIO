@@ -6,7 +6,7 @@ import Cloud3 from "../../../public/img/cloud3.png";
 import Cloud4 from "../../../public/img/cloud4.png";
 import Cloud5 from "../../../public/img/cloud5.png";
 
-function Clouds({ dark }) {
+function Clouds() {
   const numClouds = 10;
   const clouds = [];
 
@@ -18,7 +18,10 @@ function Clouds({ dark }) {
   }
 
   return (
-    <div id="CloudsContainer" className="absolute top-0 left-0 w-full h-full z-50 pointer-events-none">
+    <div
+      id="CloudsContainer"
+      className={`hidden lg:block absolute top-0 left-0 w-full h-full z-50 pointer-events-none`}
+    >
       <div className='relative w-full lg:w-[calc(100vw-4rem-320px)] h-full lg:ml-[320px] overflow-hidden flex justify-center items-end'>
         {clouds.map((cloud, index) => (
           <Image

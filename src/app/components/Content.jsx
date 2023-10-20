@@ -11,9 +11,9 @@ function Content({ dark }) {
             id='Content'
             className={`
 
-            w-full lg:w-[calc(100vw-4rem+10px)] z-0
+            w-full lg:h-[calc(100vh/10*8)] z-0
             
-            bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}
+            lg:my-[calc(100vh/10)]
         
             flex flex-col items-center
 

@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ModeButton from './components/ModeButton';
 import Cursor from './components/Cursor';
 import Clouds from './components/Clouds';
+import Waves from './components/Waves';
 
 function Home() {
   const [show, setShow] = useState(true);
@@ -60,13 +61,13 @@ function Home() {
     };
   }, []);
 
-  const lumos = [6, 1.8];
+  const lumos = [6, 3, 1.8, 1.5, 1.2];
 
   return (
     <main
       className={`relative 
       
-        h-[calc(100vh-4rem)] lg:h-screen w-screen 
+        h-screen w-screen 
         
         lg:flex lg:pl-[320px] mb-16 lg:mb-0 lg:mt-0 
 
@@ -78,7 +79,6 @@ function Home() {
         cursor: `url("/img/Cursor.png"), auto`,
       }}
     >
-      {dark && <Clouds />}
       <div
         className={`absolute -top-16 right-16 z-20 
       
@@ -86,8 +86,7 @@ function Home() {
       
           invisible lg:visible
         
-          bg-gradient-to-l ${dark ? "dark:from-slate-800 dark:via-slate-950 dark:to-slate-950" : "from-white via-white to-gray-400"} 
-      
+          
           flex flex-col`}
       >
         <div
@@ -102,17 +101,24 @@ function Home() {
           transparent={lumos}
         />
       ))}
-      <ModeButton dark={dark} showDark={showDark} />
+      {dark ? <Clouds /> : <Waves />}
+      {/* <Clouds dark={dark} /> */}
       <Landing show={show} showFull={showFull} />
-      <Content dark={dark} />
+      <div
+        className={`lg:w-[calc(100vw-320px)] h-auto lg:h-screen
+        lg:overflow-auto
+        
+        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}`}
+      >
+        <Content dark={dark} />
+      </div>
+      <ModeButton dark={dark} showDark={showDark} />
       <NavBar falseFull={falseFull} dark={dark} />
       <div
         id='este'
         className={`absolute bottom-0 right-16 z-0
       
-          w-[calc(100vw-4rem-320px)] h-[calc(100vh/10)] ml-[320px] 
-
-          ${dark ? "bg-slate-950" : "bg-transparent"}
+          w-[calc(100vw-4rem-320px)] h-[calc(100vh/10)] ml-[320px]
         
           invisible lg:visible flex flex-col mr-2`}
         style={dark ? {} : { mask }}
@@ -128,5 +134,3 @@ function Home() {
 }
 
 export default Home;
-
-/* bg-gradient-to-r from-[#7A808D] to-gray-200 */

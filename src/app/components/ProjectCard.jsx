@@ -61,7 +61,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert "
         />
         <p
-          className={`indent-0 rounded  absolute -bottom-48 z-40 custom-shadow-text w-2/3 h-auto`}
+          className={`indent-0 rounded absolute -bottom-48 z-40 custom-shadow-text w-2/3 h-auto`}
         >
           {description}
         </p>

@@ -4,7 +4,7 @@ const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
 
 function About() {
     return (
-        <section id='About' className='h-auto py-10 lg:py-0 lg:min-h-full lg:h-screen w-full text-[12px] flex flex-col snap-start snap-always tracking-widest indent-8 subpixel-antialiased'>
+        <section id='About' className='h-auto py-10 lg:py-0 lg:min-h-full lg:h-[calc(100vh/10*8)] w-full text-[12px] flex flex-col snap-start snap-always tracking-widest indent-8 subpixel-antialiased'>
             <div className="w-3/5 m-auto lg:ml-[calc(100%/5+10px)] flex flex-col gap-4">
                 <h2 className={`indent-0 opacity-70 text-4xl lg:text-[80px] text-center font-semibold ${emblemaOne.className} leading-7 text-white dark:text-slate-950 custom-text-shadow`} >About Me</h2>
                 <p>
