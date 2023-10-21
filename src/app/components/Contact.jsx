@@ -27,8 +27,8 @@ function Contact() {
   };
 
   return (
-    <section id='Contact' className='relative h-auto lg:min-h-[calc(100vh/10*8)] w-full mb-8 lg:mb-0 snap-start snap-always flex flex-col justify-center'>
-      <h2 className={`lg:indent-6 text-white dark:text-slate-950 opacity-70  text-4xl lg:text-[80px] text-center font-semibold ${emblemaOne.className} leading-[80px] custom-text-shadow`} >Contact Me</h2>
+    <section id='Contact' className='relative h-auto lg:min-h-[calc(100vh/10*8)] w-full mb-8 lg:mb-0 snap-start snap-always flex flex-col justify-center z-30'>
+      <h2 className={`lg:indent-6 text-white dark:text-slate-950 opacity-70  text-4xl lg:text-[80px] text-center font-semibold ${emblemaOne.className} leading-[80px] custom-text-shadow z-0`} >Contact Me</h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit}

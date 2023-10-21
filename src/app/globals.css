@@ -33,3 +33,25 @@
 .custom-text-shadow {
   text-shadow: -2px 2px 4px rgba(109, 102, 146, 0.5);
 }
+
+
+
+
+
+
+
+/*  ----------------------------  */
+#app {
+  margin: auto;
+  width: auto;
+  overflow: hidden;
+}
+
+img.glitter-star {
+  border-radius: 50%;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: gold;
+  animation: glitter 2s linear 0s infinite normal;
+}

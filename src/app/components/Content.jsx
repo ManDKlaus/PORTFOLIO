@@ -11,7 +11,7 @@ function Content({ dark }) {
             id='Content'
             className={`
 
-            w-full lg:h-[calc(100vh/10*8)] z-0
+            w-full lg:h-[calc(100vh/10*8)] z-30
             
             lg:my-[calc(100vh/10)]
         

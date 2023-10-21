@@ -7,7 +7,6 @@ import NavBar from './components/NavBar';
 import ModeButton from './components/ModeButton';
 import Cursor from './components/Cursor';
 import Clouds from './components/Clouds';
-import Waves from './components/Waves';
 
 function Home() {
   const [show, setShow] = useState(true);
@@ -101,12 +100,14 @@ function Home() {
           transparent={lumos}
         />
       ))}
-      {dark ? <Clouds /> : <Waves />}
-      {/* <Clouds dark={dark} /> */}
+      {dark && <Clouds />}
+      
       <Landing show={show} showFull={showFull} />
       <div
         className={`lg:w-[calc(100vw-400px)] h-auto lg:h-screen
         lg:overflow-auto
+
+        ${!dark && "transition animate-bg"}
         
         bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}`}
       >
