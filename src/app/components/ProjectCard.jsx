@@ -10,7 +10,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
     <div className="relative w-full h-full flex items-center z-10">
 
       <div className='absolute top-[-32px] right-20 flex gap-2 lg:ml-3 z-40'>
-        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative">
+        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative z-40">
           {showTrial && (
             <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-15px] w-auto " >
               Trial Version
@@ -24,7 +24,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             onMouseLeave={() => setShowTrial(false)} />
         </a>
 
-        <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative">
+        <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative z-40">
           {showCode && (
             <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-14px]" >
               Source Code

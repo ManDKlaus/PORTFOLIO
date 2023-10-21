@@ -79,7 +79,7 @@ function Home() {
       }}
     >
       <div
-        className={`absolute -top-16 right-16 z-20 
+        className={`absolute -top-16 right-16 z-40 
       
           w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[400px] pr-[6px]
       
@@ -94,14 +94,8 @@ function Home() {
           mt-auto bg-yellow-400 rounded shadow-lg'
         />
       </div>
-      {lumos.map((lumos, index) => (
-        <Cursor
-          key={index}
-          transparent={lumos}
-        />
-      ))}
       {dark && <Clouds />}
-      
+
       <Landing show={show} showFull={showFull} />
       <div
         className={`lg:w-[calc(100vw-400px)] h-auto lg:h-screen
@@ -111,13 +105,19 @@ function Home() {
         
         bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}`}
       >
+        {lumos.map((lumos, index) => (
+          <Cursor
+            key={index}
+            transparent={lumos}
+          />
+        ))}
         <Content dark={dark} />
       </div>
       <ModeButton dark={dark} showDark={showDark} />
       <NavBar falseFull={falseFull} dark={dark} />
       <div
         id='este'
-        className={`absolute bottom-0 right-16 z-0
+        className={`absolute bottom-0 right-16 z-40
       
           w-[calc(100vw-4rem-400px)] h-[calc(100vh/10)] ml-[400px]
         
@@ -125,7 +125,7 @@ function Home() {
         style={dark ? {} : { mask }}
       >
         <div
-          className='w-2/5 h-[1px] z-40 
+          className='w-2/5 h-[1px]
         
             ml-auto bg-yellow-400 rounded shadow-lg'
         />
