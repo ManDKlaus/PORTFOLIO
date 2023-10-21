@@ -22,7 +22,7 @@ module.exports = {
       },
       animation: {
         'moveClouds': 'moveClouds 6s linear infinite',
-        'moveGout': 'moveGout 6s linear infinite',
+        'moveGout': 'moveGout 2s linear infinite',
       },
       keyframes: {
         moveClouds: {

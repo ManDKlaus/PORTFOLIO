@@ -22,11 +22,12 @@ function Clouds() {
       id="CloudsContainer"
       className={`hidden lg:block absolute top-0 left-0 w-full h-full z-50 pointer-events-none`}
     >
-      <div className='relative w-full lg:w-[calc(100vw-4rem-320px)] h-full lg:ml-[320px] overflow-hidden flex justify-center items-end'>
+      <div className='relative w-full lg:w-[calc(100vw-4rem-400px)] h-full lg:ml-[400px] overflow-hidden flex justify-center items-end'>
         {clouds.map((cloud, index) => (
           <Image
             key={index}
             width="100%"
+            height="100%"
             src={cloud.image}
             style={{ animationDelay: cloud.delay }}
             className={`absolute bottom-0 left-0 transition animate-moveClouds w-auto max-h-60 blur-sm opacity-0`}

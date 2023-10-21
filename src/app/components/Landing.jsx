@@ -12,7 +12,7 @@ function Landing({ show, showFull }) {
             id='Landing'
             className={`relative lg:absolute left-0 right-0 top-0 bottom-0 z-50 
             
-            h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-4rem)]" : "lg:w-[330px]"}
+            h-[calc(100vh-4rem)] lg:h-full w-full ${show ? "lg:w-[calc(100vw-4rem)]" : "lg:w-[410px]"}
             
             flex flex-col justify-center py-24 lg:py-0
             

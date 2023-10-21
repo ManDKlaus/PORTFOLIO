@@ -69,7 +69,7 @@ function Home() {
       
         h-screen w-screen 
         
-        lg:flex lg:pl-[320px] mb-16 lg:mb-0 lg:mt-0 
+        lg:flex lg:pl-[400px] mb-16 lg:mb-0 lg:mt-0 
 
         ${dark ? "dark text-white" : "text-slate-950"}
         
@@ -82,7 +82,7 @@ function Home() {
       <div
         className={`absolute -top-16 right-16 z-20 
       
-          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[320px] pr-[6px]
+          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[400px] pr-[6px]
       
           invisible lg:visible
         
@@ -105,7 +105,7 @@ function Home() {
       {/* <Clouds dark={dark} /> */}
       <Landing show={show} showFull={showFull} />
       <div
-        className={`lg:w-[calc(100vw-320px)] h-auto lg:h-screen
+        className={`lg:w-[calc(100vw-400px)] h-auto lg:h-screen
         lg:overflow-auto
         
         bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}`}
@@ -118,7 +118,7 @@ function Home() {
         id='este'
         className={`absolute bottom-0 right-16 z-0
       
-          w-[calc(100vw-4rem-320px)] h-[calc(100vh/10)] ml-[320px]
+          w-[calc(100vw-4rem-400px)] h-[calc(100vh/10)] ml-[400px]
         
           invisible lg:visible flex flex-col mr-2`}
         style={dark ? {} : { mask }}
