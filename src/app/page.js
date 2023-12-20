@@ -1,43 +1,34 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMode } from './redux/actions';
 import Landing from './components/Landing';
 import Content from './components/Content';
 import NavBar from './components/NavBar';
-import ModeButton from './components/ModeButton';
 import Cursor from './components/Cursor';
 import Clouds from './components/Clouds';
+import NavIn from './components/NavIn';
 
 function Home() {
-  const [show, setShow] = useState(true);
 
-  const showFull = () => {
-    setShow(!show);
-  };
+  const dispatch = useDispatch();
 
-  const falseFull = () => {
-    setShow(false);
-  };
-
-  const [dark, setDark] = useState(true);
+  const lightMode = useSelector(state => state.lightMode);
+  const dashboard = useSelector(state => state.dashboard);
 
   useEffect(() => {
     setTimeout(() => {
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        setDark(true)
+        dispatch(changeMode(false));
       } else {
-        setDark(false)
+        dispatch(changeMode(true));
       }
     }, 300);
-    localStorage.theme = dark ? 'dark' : 'light';
+    localStorage.theme = lightMode ? 'light' : 'dark';
   }, [])
-
-  const showDark = () => {
-    setTimeout(() => {
-      setDark(!dark);
-    }, 300);
-    localStorage.theme = dark ? 'dark' : 'light';
-  };
 
   const mask = {
     "--mask": `linear-gradient(to top, transparent, black)`,
@@ -62,26 +53,28 @@ function Home() {
 
   const lumos = [6, 3, 1.8, 1.5, 1.2];
 
+  const show = useSelector(s => s.showLanding);
+
   return (
     <main
       className={`relative 
       
         h-screen w-screen 
         
-        lg:flex lg:pl-[400px] mb-16 lg:mb-0 lg:mt-0 
+        lg:flex lg:items-center
 
-        ${dark ? "dark text-white" : "text-slate-950"}
+        ${lightMode ? "dark text-white" : "text-slate-950"}
         
-        overflow-auto lg:overflow-y-hidden transition-dark text-sm duration-1000 select-none
+        overflow-auto lg:overflow-hidden transition-dark text-sm duration-1000 select-none
       `}
       style={{
         cursor: `url("/img/Cursor.png"), auto`,
       }}
     >
       <div
-        className={`absolute -top-16 right-16 z-40 
+        className={`absolute -top-16 right-0 z-40 
       
-          w-[calc(100vw-4rem)] h-[calc(100vh/10+4rem)] pl-[400px] pr-[6px]
+          w-full h-[calc(100vh/10+4rem)] pl-[400px]
       
           invisible lg:visible
         
@@ -94,16 +87,25 @@ function Home() {
           mt-auto bg-yellow-400 rounded shadow-lg'
         />
       </div>
-      {dark && <Clouds />}
+      {lightMode && <Clouds />}
 
-      <Landing show={show} showFull={showFull} />
+      <div className={`absolute left-0 top-0 h-full w-[calc(100%+64px)]
+      
+      flex items-center ${!show && "w-[474px]"} `} >
+        <Landing />
+        <NavBar />
+      </div>
       <div
-        className={`lg:w-[calc(100vw-400px)] h-auto lg:h-screen
+        className={`lg:w-[calc(100vw-320px)] h-auto lg:h-screen ml-[410px]
         lg:overflow-auto
 
-        ${!dark && "transition animate-bg"}
+        ${!lightMode && "transition animate-bg"}
         
-        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] ${dark ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-800 lg:via-slate-950 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500"}`}
+        bg-[radial-gradient(circle_at_-100px_200px,_var(--tw-gradient-stops))] 
+        
+        ${dashboard ? (lightMode ? " lg:from-neutral-800/60 lg:via-neutral-950 lg:to-neutral-950" : "lg:from-green-50/80 lg:via-green-200 lg:to-green-300") : (lightMode ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-700 lg:via-slate-800 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500")
+          }
+        `}
       >
         {lumos.map((lumos, index) => (
           <Cursor
@@ -111,27 +113,34 @@ function Home() {
             transparent={lumos}
           />
         ))}
-        <Content dark={dark} />
+        <Content dark={lightMode} />
       </div>
-      <ModeButton dark={dark} showDark={showDark} />
-      <NavBar falseFull={falseFull} dark={dark} />
       <div
         id='este'
-        className={`absolute bottom-0 right-16 z-40
+        className={`absolute bottom-0 right-0 z-40
       
-          w-[calc(100vw-4rem-400px)] h-[calc(100vh/10)] ml-[400px]
+          w-[calc(100vw-400px)] h-[calc(100vh/10)] ml-[400px]
         
-          invisible lg:visible flex flex-col mr-2`}
-        style={dark ? {} : { mask }}
+          invisible lg:visible flex flex-col `}
+        style={lightMode ? {} : { mask }}
       >
         <div
           className='w-2/5 h-[1px]
         
             ml-auto bg-yellow-400 rounded shadow-lg'
         />
+        <NavIn />
       </div>
     </main >
   );
 }
 
-export default Home;
+// Envuelve el componente Home con el Provider de react-redux
+const App = () => (
+  <Provider store={store}>
+    <Home />
+  </Provider>
+);
+
+// Exporta el componente App
+export default App;

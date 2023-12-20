@@ -22,7 +22,7 @@ function Clouds() {
       id="CloudsContainer"
       className={`hidden lg:block absolute top-0 left-0 w-full h-full z-50 pointer-events-none`}
     >
-      <div className='relative w-full lg:w-[calc(100vw-4rem-400px)] h-full lg:ml-[400px] overflow-hidden flex justify-center items-end'>
+      <div className='relative w-full lg:w-[calc(100vw-400px)] h-full lg:ml-[400px] overflow-hidden flex justify-center items-end'>
         {clouds.map((cloud, index) => (
           <Image
             key={index}

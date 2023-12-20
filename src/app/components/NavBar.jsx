@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import NavButton from './NavButton';
+import ModeButton from './ModeButton';
 
-function NavBar({ falseFull, dark }) {
+function NavBar() {
 
-    const navItems = [
+    const dashboard = useSelector(state => state.dashboard);
+
+    const navPortfolio = [
         {
             id: 'About Me',
             text: 'About',
@@ -26,23 +30,51 @@ function NavBar({ falseFull, dark }) {
         },
     ];
 
+    const navDashboard = [
+        {
+            id: 'Global',
+            text: 'Global',
+            iconSrc: "https://img.icons8.com/pulsar-line/48/geography.png",
+        },
+        {
+            id: 'Likes',
+            text: 'Likes',
+            iconSrc: "https://img.icons8.com/pulsar-line/48/like.png",
+        },
+        {
+            id: 'Comments',
+            text: 'Comments',
+            iconSrc: "https://img.icons8.com/pulsar-line/48/comments.png",
+        },
+        {
+            id: 'Contact',
+            text: 'Contact',
+            iconSrc: 'https://img.icons8.com/pulsar-line/24/paper-plane.png',
+        },
+    ];
+
     return (
-        <ul
-            className={`fixed z-40 bottom-0 lg:relative h-16 w-full lg:h-full lg:w-16 lg:py-[calc(100vh/10)]
+        <div className='relative h-full flex items-center'>
+            <ModeButton />
+            <ul
+                className={`fixed lg:relative bottom-0 h-16 lg:h-2/5 dark:text-gray-950 z-40 
             
-            bg-gradient-to-r lg:bg-gradient-to-t ${!dark && "from-slate-950 via-slate-600 to-slate-500"} dark:from-gray-300 dark:via-gray-200 dark:to-white dark:text-gray-950 
-            
-            text-gray-300 flex lg:flex-col justify-center`}
-        >
-            {navItems.map((item) => (
-                <NavButton
-                    key={item.id}
-                    falseFull={falseFull}
-                    item={item}
-                    dark={dark}
-                />
-            ))}
-        </ul>
+                text-gray-300 flex lg:flex-col justify-center `}
+            >
+                {!dashboard ? navPortfolio.map((item) => (
+                    <NavButton
+                        key={item.id}
+                        item={item}
+                    />
+                )) : navDashboard.map((item) => (
+                    <NavButton
+                        key={item.id}
+                        item={item}
+                    />
+                ))
+                }
+            </ul>
+        </div>
     );
 }
 

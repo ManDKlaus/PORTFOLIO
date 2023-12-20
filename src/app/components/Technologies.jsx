@@ -202,8 +202,6 @@ const Technologies = ({ dark }) => {
           />
         </li>
       </ul>
-
-      <div className='absolute bottom-0 left-0 w-14 h-72 dark:bg-slate-950 z-40' />
       {
         selectedChart === "virus" ? (
           <ChartComponent data={technologyData} dark={dark} />
