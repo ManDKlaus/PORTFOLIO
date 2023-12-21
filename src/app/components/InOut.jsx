@@ -5,10 +5,11 @@ import { changeConnection, changeDashboard } from '../redux/actions';
 
 function InOut() {
     const dispatch = useDispatch();
+    const dashboard = useSelector(state => state.dashboard);
 
     const ConectOrNot = (e) => { 
         dispatch(changeConnection());
-        dispatch(changeDashboard());
+        dashboard && dispatch(changeDashboard());
         e.stopPropagation();
     }
 

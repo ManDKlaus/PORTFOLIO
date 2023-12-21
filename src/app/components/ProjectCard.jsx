@@ -1,97 +1,85 @@
 import React, { useState } from 'react';
 import Image from 'next/image'
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink, sourceCodeLink, dark, onPrevPage, onNextPage }) => {
 
-  const [showCode, setShowCode] = useState(false);
-  const [showTrial, setShowTrial] = useState(false);
+  const dashboard = useSelector(state => state.dashboard);
 
   return (
-    <div className="relative w-full h-full flex items-center z-10">
+    <div className=" w-3/4 h-auto flex flex-col items-center gap-8 z-10">
 
-      <div className='absolute top-[-32px] right-20 flex gap-2 lg:ml-3 z-40'>
-        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative z-40">
-          {showTrial && (
-            <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-15px] w-auto " >
-              Trial Version
-            </p>
-          )}
-          <img
-            src="https://img.icons8.com/pulsar-line/25/trial-version.png"
-            alt="Trial Version"
-            className={`dark:invert ${showTrial ? "" : "opacity-30"}`}
-            onMouseEnter={() => setShowTrial(true)}
-            onMouseLeave={() => setShowTrial(false)} />
-        </a>
+      <div className="relative w-full h-72 flex flex items-center" >
 
-        <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline relative z-40">
-          {showCode && (
-            <p className="indent-0 text-[12px] px-2 py-1 rounded bg-slate-800 text-white dark:bg-white dark:text-slate-950 absolute bottom-full right-[-14px]" >
-              Source Code
-            </p>
-          )}
-          <img
-            src="https://img.icons8.com/pulsar-line/25/code.png"
-            alt="Source Code"
-            className={`dark:invert ${showCode ? "" : "opacity-30"}`}
-            onMouseEnter={() => setShowCode(true)}
-            onMouseLeave={() => setShowCode(false)} />
-        </a>
+        <div className='relative w-full flex items-center'>
+          <Image
+            width="112"
+            height="112"
+            src="https://img.icons8.com/pulsar-line/200/forward.png"
+            onClick={onPrevPage}
+            alt="Arrow Left"
+            className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
+          />
+          <h3
+            className="w-full text-3xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-lg"
+          >
+            {title}
+          </h3>
+          <Image
+            width="112"
+            height="112"
+            src="https://img.icons8.com/pulsar-line/200/forward.png"
+            onClick={onNextPage}
+            alt="Arrow Right"
+            className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert "
+          />
+        </div>
+        <div className='absolute right-20 lg:right-28 h-full w-auto flex' >
+          <Image
+            src={imageUrl}
+            alt={title}
+            className={`h-full w-full rounded-md z-0 border border-yellow-400 `}
+            style={{
+              transform: 'skewX(-15deg)',
+              backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
+              maskImage: 'linear-gradient(to right, transparent, black, black)'
+            }}
+          />
+          <div
+            className='h-full w-16
+          
+            flex-col 
+          
+            z-40'
+            style={{
+              transform: 'skewX(-15deg)',
+            }}
+          >
+            <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className={`h-1/2 w-full flex items-center justify-center text-white-500 ${ dashboard ? "bg-emerald-100/50 dark:bg-neutral-500/70" : "bg-white/50 dark:bg-white/20"} rounded-tr-lg shadow-md`} >
+              <img
+                src="https://img.icons8.com/pulsar-line/25/trial-version.png"
+                alt="Trial Version"
+                className={`dark:invert`} />
+            </a>
+
+            <a href={sourceCodeLink} target="_blank" rel="noopener noreferrer" className={`h-1/2 w-full flex items-center justify-center text-blue-500 ${ dashboard ? "bg-emerald-100/50 dark:bg-neutral-500/70" : "bg-white/50 dark:bg-white/20"} rounded-br-lg shadow-md`}>
+              <img
+                src="https://img.icons8.com/pulsar-line/25/code.png"
+                alt="Source Code"
+                className={`dark:invert `} />
+            </a>
+          </div>
+        </div>
       </div>
-      <div className='relative w-full flex justify-center items-center'>
-        <Image
-          width="112"
-          height="112"
-          src="https://img.icons8.com/pulsar-line/200/forward.png"
-          onClick={onPrevPage}
-          alt="Arrow Left"
-          className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
-        />
-        <h3
-          className="w-full text-3xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-lg"
-        >
-          {title}
-        </h3>
-        <Image
-          width="112"
-          height="112"
-          src="https://img.icons8.com/pulsar-line/200/forward.png"
-          onClick={onNextPage}
-          alt="Arrow Right"
-          className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert "
-        />
-        <p
-          className={`indent-0 rounded absolute -bottom-48 z-40 custom-shadow-text w-2/3 h-auto`}
-        >
-          {description}
-        </p>
-      </div>
-      <div className='absolute right-20 lg:right-28 h-full w-auto' >
-        <Image
-          src={imageUrl}
-          alt={title}
-          className={`h-full w-full rounded-md z-0 border border-yellow-400 `}
-          style={{
-            transform: 'skewX(-15deg)',
-            backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
-            maskImage: 'linear-gradient(to right, transparent, black, black)'
-          }}
-        />
-      </div>
+      <p
+        className={`rounded w-2/3 h-auto`}
+      >
+        {description}
+      </p>
 
     </div>
   );
 };
 
 export default ProjectCard;
-
-
-
-{/* <ul className='w-3/4 lg:w-1/2 h-10 flex flex-wrap gap-1 items-end z-10'>
-{technologies.map((tech) => (
-  <li key={tech} className="bg-slate-700 dark:bg-white rounded-md text-[12px]  dark:text-slate-950 text-white px-2 indent-0 shadow-inner shadow-black dark:shadow-slate-700 ">
-    {tech}
-  </li>
-))}
-</ul> */}

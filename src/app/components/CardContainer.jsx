@@ -88,20 +88,18 @@ const CardContainer = () => {
     };
 
     return (
-        <div className='w-full h-auto px-4 md:pl-[calc(12%)] md:pr-[calc(10%)] flex flex-col gap-4 justify-center'>
-            <div className='w-full h-32 lg:h-[calc(100vh/4)]' >
-                {getPageData().map((project) => (
-                    <ProjectCard
-                        {...project}
-                        key={project.id}
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onPrevPage={handlePrevPage}
-                        onNextPage={handleNextPage}
-                    />
-                ))}
-            </div>
-            <div className="flex justify-center my-4">
+        <div className='w-full h-full flex items-center justify-center'>
+            {getPageData().map((project) => (
+                <ProjectCard
+                    {...project}
+                    key={project.id}
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPrevPage={handlePrevPage}
+                    onNextPage={handleNextPage}
+                />
+            ))}
+            <div className="absolute bottom-36 w-full flex justify-center">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button
                         key={index}

@@ -10,8 +10,7 @@ import TechList from './TechList';
 import dynamic from 'next/dynamic';
 const ChartComponent = dynamic(() => import('../components/TechTreeChart'), { ssr: false });
 const ChartComponent2 = dynamic(() => import('../components/TechIllustration'), { ssr: false });
-import { Emblema_One } from 'next/font/google'
-const emblemaOne = Emblema_One({ subsets: ['latin'], weight: ["400"] })
+import Titles from './Titles';
 
 const Technologies = ({ dark }) => {
   // Define los datos del gráfico
@@ -169,7 +168,8 @@ const Technologies = ({ dark }) => {
 
   return (
     <section id='Technologies' className='relative h-[calc(45vh)] lg:min-h-[calc(100vh/10*8)] w-full my-4 mt-8 lg:my-0 pyflex flex-col items-center gap-4 snap-start snap-always z-20' >
-      <h2 className={`lg:pt-44 indent-3 text-white dark:text-slate-950 opacity-80 text-4xl lg:text-[80px] text-center font-semibold ${emblemaOne.className} leading-7 custom-text-shadow z-40`} >Technologies</h2>
+      
+      <Titles title="Technologies" />
       <ul className='absolute top-0 right-4 h-full w-auto flex flex-col gap-4 justify-center z-30'>
         <li>
           <Image

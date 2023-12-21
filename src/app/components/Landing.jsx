@@ -71,6 +71,7 @@ function Landing() {
                     <Image
                         src={Nicolas}
                         alt="Nicol&aacute;s Daniel Mansilla"
+                        width="auto"
                         height={150}
                         className='shadow-lg rounded-lg z-50'
                     />
