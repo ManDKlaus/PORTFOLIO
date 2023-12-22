@@ -1,58 +1,15 @@
 'use client'
 
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ProjectCard from './ProjectCard';
-import Banner from "../../../public/img/NDM-Portfolio.png"
 
-const projects = [
-    {
-        id: 1,
-        title: 'Portfolio',
-        description: 'This website showcases my work as a Full Stack Developer, highlighting projects that reflect my passion for creating user-friendly web applications with cutting-edge technologies.',
-        technologies: ['Next.js', 'Tailwind CSS', 'Express'],
-        imageUrl: Banner,
-        liveDemoLink: 'https://portfolio-git-master-mandklaus.vercel.app',
-        sourceCodeLink: 'https://github.com/ManDKlaus/PORTFOLIO',
-    },
-    {
-        id: 2,
-        title: 'E-commerce',
-        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
-        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-        imageUrl: Banner,
-        liveDemoLink: 'enlace del demo 2',
-        sourceCodeLink: 'enlace del código fuente 2',
-    },
-    {
-        id: 3,
-        title: 'API Insights',
-        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
-        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-        imageUrl: Banner,
-        liveDemoLink: 'enlace del demo 2',
-        sourceCodeLink: 'enlace del código fuente 2',
-    },
-    {
-        id: 4,
-        title: 'Game',
-        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
-        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-        imageUrl: Banner,
-        liveDemoLink: 'enlace del demo 2',
-        sourceCodeLink: 'enlace del código fuente 2',
-    },
-    {
-        id: 5,
-        title: 'Red Social',
-        description: '1337 Hardware is your ultimate destination for all things gaming. Discover a wide range of high-performance computer products tailored to gamers. From top-of-the-line graphics cards to ergonomic gaming peripherals, we´ve got you covered.',
-        technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-        imageUrl: Banner,
-        liveDemoLink: 'enlace del demo 2',
-        sourceCodeLink: 'enlace del código fuente 2',
-    },
-];
+
 
 const CardContainer = () => {
+
+    const projects = useSelector(state => state.projects);
+
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(projects.length / 1);
     const [currentOffset, setCurrentOffset] = useState(0);
@@ -104,7 +61,7 @@ const CardContainer = () => {
                     <button
                         key={index}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`h-2 w-2 mx-1.5 rounded-full ${index + 1 === currentPage ? 'dark:bg-gray-300 bg-slate-800' : 'dark:bg-slate-800 bg-gray-300'}`}
+                        className={`h-2 w-2 mx-1.5 rounded-full ${index + 1 === currentPage ? 'dark:bg-yellow-300 bg-yellow-500' : 'bg-slate-800 dark:bg-gray-300'}`}
                     />
                 ))}
             </div>

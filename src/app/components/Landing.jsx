@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import LandingButton from "./LandingButton";
 import Image from 'next/image';
-import Nicolas from "../../../public/Nicolas.jpeg"
-import Banner from "../../../public/img/dev2.png"
-import InOut from "../components/InOut"
+import Nicolas from "../../../public/Nicolas.jpeg";
+import Banner from "../../../public/img/dev2.png";
+import InOut from "../components/InOut";
 import { useDispatch, useSelector } from 'react-redux';
 import { showLanding } from '../redux/actions';
 
