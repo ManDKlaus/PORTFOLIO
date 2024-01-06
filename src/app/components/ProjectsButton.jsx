@@ -46,7 +46,7 @@ function ProjectsButton() {
     return (
         <div
             ref={containerRef}
-            className='absolute -bottom-24 left-28 w-full h-full drop-shadow-lg bg-neutral flex gap-2 z-50'
+            className='absolute -bottom-20 lg:-bottom-24 left-[20%] lg:left-28 w-full h-full drop-shadow-lg bg-neutral flex gap-2 z-50'
         >
             <Image
                 height={25}

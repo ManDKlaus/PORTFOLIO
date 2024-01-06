@@ -4,9 +4,9 @@ import Titles from './Titles'
 
 function Projects({ dark }) {
   return (
-    <section id='Projects' className='relative min-h-full h-full w-full 
+    <section id='Projects' className='relative lg:min-h-full h-auto lg:h-full w-full 
     
-    lg:mx-0 
+    pt-24 lg:py-0  
     
     flex items-center justify-center gap-4 
     

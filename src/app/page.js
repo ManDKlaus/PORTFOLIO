@@ -59,13 +59,14 @@ function Home() {
     <main
       className={`relative 
       
-        h-screen w-screen 
+        h-auto lg:h-screen w-screen min-w-[400px]
         
         lg:flex lg:items-center
 
         ${lightMode ? "dark text-white" : "text-slate-950"}
         
-        overflow-auto lg:overflow-hidden transition-dark text-sm duration-1000 select-none
+        overflow-hidden transition-dark text-sm duration-1000 select-none
+        custom-scrollbar scroll-smooth snap-mandatory snap-y
       `}
       style={{
         cursor: `url("/img/Cursor.png"), auto`,
@@ -76,10 +77,7 @@ function Home() {
       
           w-full h-[calc(100vh/10+4rem)] pl-[400px]
       
-          invisible lg:visible
-        
-          
-          flex flex-col`}
+          hidden lg:flex flex-col`}
       >
         <div
           className='w-2/5 h-[1px] z-50 
@@ -89,15 +87,18 @@ function Home() {
       </div>
       {lightMode && <Clouds />}
 
-      <div className={`absolute left-0 top-0 h-full w-[calc(100%+64px)]
+      <div 
+        className={`lg:absolute left-0 top-0 h-auto lg:h-full w-full lg:w-[calc(100%+64px)]
       
-      flex items-center ${!show && "w-[474px]"} `} >
+        flex items-center `} >
         <Landing />
-        <NavBar />
+        <div className="hidden lg:block w-16 h-full" >
+          <NavBar />
+        </div>
       </div>
       <div
-        className={`lg:w-[calc(100vw-320px)] h-auto lg:h-screen ml-[410px]
-        lg:overflow-auto
+        className={`w-full lg:w-[calc(100vw-320px)] h-auto lg:h-screen lg:ml-[410px]
+        overflow-hidden lg:overflow-auto
 
         ${!lightMode && "transition animate-bg"}
         
@@ -121,7 +122,7 @@ function Home() {
       
           w-[calc(100vw-400px)] h-[calc(100vh/10)] ml-[400px]
         
-          invisible lg:visible flex flex-col `}
+          hidden lg:flex flex-col `}
         style={lightMode ? {} : { mask }}
       >
         <div

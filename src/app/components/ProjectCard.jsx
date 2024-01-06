@@ -11,7 +11,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
   return (
     <div className=" w-3/4 h-auto flex flex-col items-center gap-4 z-10">
 
-      <div className="relative w-full h-60 flex flex items-center" >
+      <div className="relative w-full h-[25vh] flex flex items-center" >
 
         <div className='relative w-full flex items-center'>
           <Image
@@ -20,10 +20,10 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             src="https://img.icons8.com/pulsar-line/200/forward.png"
             onClick={onPrevPage}
             alt="Arrow Left"
-            className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
+            className="cursor-pointer h-20 w-20 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
           />
           <h3
-            className="w-full text-3xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-lg"
+            className="w-full text-4xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-6xl shadow-white"
           >
             {title}
           </h3>
@@ -34,14 +34,14 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             src="https://img.icons8.com/pulsar-line/200/forward.png"
             onClick={onNextPage}
             alt="Arrow Right"
-            className="cursor-pointer h-16 w-16 md:h-28 md:w-28 mt-1 z-40 dark:invert "
+            className="cursor-pointer h-20 w-20 md:h-28 md:w-28 mt-1 z-40 dark:invert "
           />
         </div>
-        <div className='absolute right-32 h-full w-2/4 flex' >
+        <div className='absolute right-10 md:right-28 lg:right-32 h-full w-auto flex' >
           <Image
             src={imageUrl}
             alt={title}
-            className={`h-auto w-[calc(100%-64px)] rounded-md z-0 border border-yellow-400 skew-x-[-15deg]`}
+            className={`h-auto min-w-[200px] w-[calc(100%-64px)] rounded-md z-0 border border-yellow-400 skew-x-[-15deg]`}
             style={{
               backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
@@ -49,7 +49,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             }}
           />
           <div
-            className='h-full w-16
+            className='h-full w-8 md:w-12 lg:w-16
           
             flex-col 
           

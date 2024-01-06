@@ -18,18 +18,18 @@ function TechList() {
         <div className='absolute top-0 left-0 h-full w-full px-12 lg:px-32 flex flex-wrap justify-center items-center content-center' >
             {isLoading ? (
                 Object.keys(imageObject).map((key) => (
-                    <div key={key} className="w-10 h-10 bg-gray-300 rounded animate-pulse m-4" />
+                    <div key={key} className="w-7 h-7 md:w-7 md:h-7 lg:w-10 lg:h-10 bg-gray-300 rounded animate-pulse m-4" />
                 ))
             ) : (
                 // Renderiza las imágenes y nombres cuando isLoading es false
                 Object.entries(imageObject).map(([key, imageUrl]) => (
-                    <div key={key} className="m-4 group relative">
+                    <div key={key} className="m-2 lg:m-4 group relative">
                         {imageUrl ? (
                             <div className="relative">
                                 <Image
                                     height={25}
                                     width={25}
-                                    className="w-10"
+                                    className="w-7 md:w-8 lg:w-10"
                                     src={imageUrl}
                                     alt={key}
                                 />

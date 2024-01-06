@@ -16,7 +16,7 @@ function NavButton({ item }) {
             href={linkSrc}
             target="_blank"
             onClick={stop}
-            className={`w-16 hover:w-auto h-1/4 shadow-md
+            className={`w-16 hover:w-auto h-1/4 shadow-lg 
         
                 ${dashboard ? "bg-green-50/80 dark:bg-neutral-500/70" : "bg-white/80 dark:bg-slate-500/70"}
         

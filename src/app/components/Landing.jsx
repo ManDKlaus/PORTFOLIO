@@ -31,7 +31,7 @@ function Landing() {
             id: 'LinkedIn',
             text: 'LinkedIn',
             linkSrc: "https://www.linkedin.com/in/nicol%C3%A1sdanielmansilla/",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/linkedin.png" ,
+            iconSrc: "https://img.icons8.com/pulsar-line/48/linkedin.png",
         },
         {
             id: 'Gmail',
@@ -52,18 +52,20 @@ function Landing() {
             id='Landing'
             className={`relative z-50 
             
-            h-[calc(100vh-4rem)] lg:h-full w-full ${!show && "lg:w-[410px]"}
+            h-screen w-full ${!show && "lg:w-[410px]"}
             
             flex flex-col justify-center py-24 lg:py-0
             
-            shadow-md dark:shadow-2xl shadow-slate-900 text-white transition-width ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
+            shadow lg:shadow-md dark:shadow-2xl shadow-slate-900 text-white transition-width ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
             style={{
                 backgroundImage: `url(${Banner.src})`,
             }}
             onClick={showFull}
         >
             <div className='absolute top-0 right-0 w-full h-[calc(100vh/10)] z-50 flex flex-col items-end justify-end' >
-                <InOut />
+                <div className='hidden lg:block'>
+                    <InOut />
+                </div>
                 <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg ml-auto' />
             </div>
             <div className={`w-80 mx-auto z-50 flex flex-col justify-center items-center text-center custom-shadow-text`} >
@@ -75,7 +77,7 @@ function Landing() {
                         height={150}
                         className='shadow-lg rounded-lg z-50'
                     />
-                    <div className='h-full absolute top-0 left-[105px] flex flex-col justify-between z-40 shadow-lg text-black dark:text-white'>
+                    <div className='h-full absolute top-0 left-[105px] flex flex-col justify-between z-40 text-black dark:text-white'>
                         {navLanding.map((item) => (
                             <LandingButton
                                 key={item.id}

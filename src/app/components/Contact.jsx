@@ -29,7 +29,7 @@ function Contact() {
   const dashboard = useSelector(state => state.dashboard);
 
   return (
-    <section id='Contact' className='relative h-auto lg:min-h-full w-full mb-8 lg:mb-0 snap-start snap-always flex flex-col justify-center items-center'>
+    <section id='Contact' className='relative h-auto lg:min-h-full w-full pt-24 lg:py-0 mb-10 lg:mb-0 snap-start snap-always flex flex-col justify-center items-center'>
 
       <Titles title="Contact Me" />
       <form
