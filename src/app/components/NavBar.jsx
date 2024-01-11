@@ -54,10 +54,10 @@ function NavBar() {
     ];
 
     return (
-        <div className='relative h-full flex items-center'>
+        <div className='relative h-full flex items-center z-40'>
             <ModeButton />
             <ul
-                className={`fixed lg:relative bottom-0 h-16 lg:h-2/5 dark:text-gray-950 z-40 
+                className={`fixed lg:relative bottom-0 h-16 lg:h-2/5 dark:text-gray-950  
             
                 text-gray-300 flex lg:flex-col justify-center `}
             >
