@@ -30,7 +30,7 @@ function NavButton({ item }) {
         alt={text}
         className="dark:invert"
       />
-      <span className='hidden group-hover:block pl-4'>{text}</span>
+      <span className='hidden group-hover:block pl-4 pr-5'>{text}</span>
     </button>
   );
 }

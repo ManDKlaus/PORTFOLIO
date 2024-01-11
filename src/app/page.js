@@ -97,7 +97,7 @@ function Home() {
         </div>
       </div>
       <div
-        className={`w-full lg:w-[calc(100vw-320px)] h-auto lg:h-screen lg:ml-[410px]
+        className={`w-full lg:w-[calc(100vw-320px)] h-auto lg:h-full lg:ml-[410px]
         overflow-hidden lg:overflow-auto
 
         ${!lightMode && "transition animate-bg"}
