@@ -3,7 +3,7 @@ import Titles from './Titles'
 
 function Comments() {
     return (
-        <section id='Comments' className='relative h-full w-full py-10 lg:py-0 lg:min-h-full w-full text-[12px] flex flex-col items-center justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased z-40'>
+        <section id='Comments' className='relative h-full w-full py-10 lg:py-0 lg:min-h-full w-full text-[12px] flex flex-col items-center justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased z-30'>
                 <Titles title="Comments" />
                 <p className='z-40 lg:w-2/3 w-4/5' >
                     Hi there! I&apos;m a passionate <span className='text-yellow-400'>Full Stack Developer</span>, obviusly. When I&apos;m not coding and building awesome web applications, you can find me indulging in my love for series and movies. I&apos;m a huge fan of classics like Pokemon, Naruto, and Dragon Ball, and I&apos;m always excited about the latest releases from the Marvel universe.
