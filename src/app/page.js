@@ -75,7 +75,7 @@ function Home() {
       <div
         className={`absolute -top-16 right-0 z-40 
       
-          w-full h-[calc(100vh/10+4rem)] pl-[400px]
+          w-full h-[calc(100%/10+4rem)] pl-[400px]
       
           hidden lg:flex flex-col`}
       >
@@ -97,7 +97,7 @@ function Home() {
         </div>
       </div>
       <div
-        className={`w-full lg:w-[calc(100vw-320px)] h-auto lg:h-full lg:ml-[410px]
+        className={`w-full lg:w-[calc(100%-320px)] h-auto lg:h-full lg:ml-[410px]
         overflow-hidden lg:overflow-auto
 
         ${!lightMode && "transition animate-bg"}
@@ -120,7 +120,7 @@ function Home() {
         id='este'
         className={`absolute bottom-0 right-0 z-40
       
-          w-[calc(100vw-400px)] h-[calc(100vh/10)] ml-[400px]
+          w-[calc(100vw-400px)] h-[calc(100%/10)] ml-[400px]
         
           hidden lg:flex flex-col `}
         style={lightMode ? {} : { mask }}

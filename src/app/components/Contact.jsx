@@ -29,13 +29,18 @@ function Contact() {
   const dashboard = useSelector(state => state.dashboard);
 
   return (
-    <section id='Contact' className='relative h-auto lg:min-h-full w-full pt-24 lg:py-0 mb-10 lg:mb-0 snap-start snap-always flex flex-col justify-center items-center'>
+    <section
+      id='Contact'
+      className='relative h-auto lg:min-h-full w-full pt-24 lg:py-0 mb-10 lg:mb-0 
+    
+      snap-start snap-always flex flex-col justify-center items-center'
+    >
 
       <Titles title="Contact Me" />
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className='w-3/5 mx-auto lg:ml-[calc(100%/5+10px)] flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
+        className='w-3/5 mx-auto lg:ml-[calc(20%+10px)] flex flex-col gap-2 items-center text-white dark:text-gray-950 ' >
         <input
           className={`w-full py-1 px-2 rounded placeholder:text-gray-400 placeholder:opacity-60
           

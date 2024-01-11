@@ -15,10 +15,13 @@ function TechList() {
     const imageObject = useSelector(state => state.imageObject);
 
     return (
-        <div className='absolute top-0 left-0 h-full w-full px-12 lg:px-32 flex flex-wrap justify-center items-center content-center' >
+        <div className='absolute top-0 left-0 h-full w-full px-[15vw] flex flex-wrap justify-center items-center content-center' >
             {isLoading ? (
                 Object.keys(imageObject).map((key) => (
-                    <div key={key} className="w-7 h-7 md:w-7 md:h-7 lg:w-10 lg:h-10 bg-gray-300 rounded animate-pulse m-4" />
+                    <div
+                        key={key}
+                        className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-gray-300 rounded animate-pulse m-4"
+                    />
                 ))
             ) : (
                 // Renderiza las imágenes y nombres cuando isLoading es false

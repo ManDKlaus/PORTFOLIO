@@ -8,7 +8,7 @@ function Cursor({ transparent }) {
         white .1%,
         transparent ${transparent}%
       )`,
-      "-webkitMask": `var(--mask)`,
+      WebkitMask: `var(--mask)`,
       mask: `var(--mask)`,
     }
 

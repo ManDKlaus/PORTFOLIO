@@ -26,7 +26,7 @@ function Landing() {
             id='Landing'
             className={`relative z-50 
             
-            h-screen w-full ${!show && "lg:w-[410px]"}
+            h-full w-full ${!show && "lg:w-[410px]"}
             
             flex flex-col justify-center py-24 lg:py-0
             

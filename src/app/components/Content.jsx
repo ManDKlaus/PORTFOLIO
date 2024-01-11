@@ -14,7 +14,11 @@ function Content({ dark }) {
     return (
         <section
             id='Content'
-            className={`w-full lg:h-[calc(100vh/10*8)] z-20 lg:my-[calc(100vh/10)] flex flex-col items-center overflow-hidden lg:overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y`}
+            className={`w-full lg:h-[calc(80vh)] lg:my-[calc(100vh/10)] z-20
+            
+            flex flex-col items-center 
+            
+            overflow-hidden lg:overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y`}
         >
             {dashboard ? (
                 <>
