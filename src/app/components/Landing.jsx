@@ -19,34 +19,8 @@ function Landing() {
     };
 
     const show = useSelector(state => state.showLanding);
-
-    const navLanding = [
-        {
-            id: 'GitHub',
-            text: 'GitHub',
-            linkSrc: "https://github.com/ManDKlaus",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/github.png",
-        },
-        {
-            id: 'LinkedIn',
-            text: 'LinkedIn',
-            linkSrc: "https://www.linkedin.com/in/nicol%C3%A1sdanielmansilla/",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/linkedin.png",
-        },
-        {
-            id: 'Gmail',
-            text: 'Gmail',
-            linkSrc: "mailto:mansilland@gmail.com",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/gmail-new.png",
-        },
-        {
-            id: 'WhatsApp',
-            text: 'WhatsApp',
-            linkSrc: "https://wa.me/qr/2X77DSSQIW2EO1",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/whatsapp.png",
-        },
-    ];
-
+    const navLanding = useSelector(state => state.navLanding);
+    
     return (
         <section
             id='Landing'

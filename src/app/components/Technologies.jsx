@@ -167,7 +167,7 @@ const Technologies = ({ dark }) => {
   };
 
   return (
-    <section id='Technologies' className='relative h-[calc(45vh)] lg:min-h-full w-full pt-24 lg:py-0 my-4 mt-8 lg:my-0 pyflex flex-col items-center gap-4 snap-start snap-always z-20' >
+    <section id='Technologies' className='relative h-[calc(35vh)] lg:min-h-full w-full pt-24 lg:py-0 mt-6 lg:my-0 pyflex flex-col items-center gap-4 snap-start snap-always z-20' >
       
       <Titles title="Technologies" />
       <ul className='absolute top-0 right-4 h-full w-auto flex flex-col gap-4 justify-center z-30'>
