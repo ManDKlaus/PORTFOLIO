@@ -59,7 +59,7 @@ function Home() {
     <main
       className={`relative 
       
-        h-auto lg:h-screen w-screen min-w-[400px]
+        h-auto lg:h-full w-full min-w-[400px]
         
         lg:flex lg:items-center
 
