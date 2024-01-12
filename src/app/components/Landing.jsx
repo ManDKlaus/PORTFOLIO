@@ -74,10 +74,10 @@ function Landing() {
                         src={Nicolas}
                         alt="Nicol&aacute;s Daniel Mansilla"
                         width="auto"
-                        height={185}
+                        height={200}
                         className='shadow-lg rounded-lg z-50'
                     />
-                    <div className='h-full absolute top-0 left-[133px] flex flex-col justify-between z-40 text-black dark:text-white'>
+                    <div className='h-full absolute top-0 left-[143px] flex flex-col justify-between z-40 text-black dark:text-white'>
                         {navLanding.map((item) => (
                             <LandingButton
                                 key={item.id}
@@ -85,23 +85,6 @@ function Landing() {
                             />
                         ))}
                     </div>
-                    <button
-                        className={`h-full w-16 hover:w-auto absolute top-0 right-[133px] pr-6 pl-4 flex flex-row-reverse items-center group
-                        z-40
-                    
-                        text-black dark:text-white ${dashboard ? "bg-green-50/50 dark:bg-neutral-600/70" : "bg-white/40 dark:bg-slate-600/70"}
-                        
-                        rounded-l-lg shadow-lg`}
-                    >
-                        <Image
-                            src="https://img.icons8.com/pulsar-line/48/resume.png"
-                            alt="cv"
-                            width="24"
-                            height="24"
-                            className='dark:invert'
-                        />
-                        <span className='hidden group-hover:inline pr-4 pl-6' >CV</span>
-                    </button>
                 </div>
                 <h1 className={`my-4 text-lg ${emblemaOne.className} md:text-xl lg:text-3xl`} >
                     <span className="text-yellow-400">Nicol&aacute;s Daniel </span>
