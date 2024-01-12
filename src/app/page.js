@@ -75,7 +75,7 @@ function Home() {
       <div
         className={`absolute -top-16 right-0 z-40 
       
-          w-full h-[calc(100%/10+4rem)] pl-[400px]
+          w-full h-[calc(10%+4rem)] pl-[400px]
       
           hidden lg:flex flex-col`}
       >
@@ -88,7 +88,7 @@ function Home() {
       {lightMode && <Clouds />}
 
       <div 
-        className={`lg:absolute left-0 top-0 h-auto lg:h-full w-full lg:w-[calc(100%+64px)]
+        className={`lg:absolute left-0 top-0 h-auto lg:h-full w-full lg:w-[calc(100%+4rem)]
       
         flex items-center `} >
         <Landing />
@@ -120,7 +120,7 @@ function Home() {
         id='este'
         className={`absolute bottom-0 right-0 z-40
       
-          w-[calc(100vw-400px)] h-[calc(100%/10)] ml-[400px]
+          w-[calc(100%-400px)] h-[calc(10%)] ml-[400px]
         
           hidden lg:flex flex-col `}
         style={lightMode ? {} : { mask }}

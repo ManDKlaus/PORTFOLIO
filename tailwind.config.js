@@ -9,6 +9,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        '3xl': '0 0 4px rgba(255, 255, 255, 1)',
+        '4xl': [
+            '0 0 8px rgba(255, 255, 255, 1)',
+            '0 0px 16px rgba(255, 255, 255, 1)'
+        ]
+      },
       backgroundImage: {
         'banner': "url('/img/banner.gif')",
         'developer': "url('/img/developer.jpg')",

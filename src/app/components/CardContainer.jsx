@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProjectCard from './ProjectCard';
 
-
-
 const CardContainer = () => {
 
     const projects = useSelector(state => state.projects);

@@ -9,11 +9,11 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
   const imageObject = useSelector(state => state.imageObject);
 
   return (
-    <div className=" w-3/4 h-auto flex flex-col items-center gap-4 z-10">
+    <div className="w-full md:w-4/5 lg:w-3/4 h-auto flex flex-col items-center gap-4 z-10">
 
-      <div className="relative w-full h-[25vh] flex flex items-center" >
+      <div className="relative w-full h-[15vh] md:h-[20vh] lg:h-[25vh] flex flex items-center" >
 
-        <div className='relative w-full flex items-center'>
+        <div className='absolute left-0 top-0 w-full h-full flex justify-between items-center z-50'>
           <Image
             width="112"
             height="112"
@@ -23,7 +23,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             className="cursor-pointer h-20 w-20 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
           />
           <h3
-            className="w-full text-4xl lg:text-5xl indent-0 font-bold mt-2 z-40 drop-shadow-6xl shadow-white"
+            className="w-full text-4xl lg:text-5xl indent-0 font-bold mr-28 mt-2 z-40 drop-shadow-4xl dark:drop-shadow-none pointer-events-none"
           >
             {title}
           </h3>
@@ -41,7 +41,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           <Image
             src={imageUrl}
             alt={title}
-            className={`h-auto min-w-[200px] w-[calc(100%-64px)] rounded-md z-0 border border-yellow-400 skew-x-[-15deg]`}
+            className={`h-auto min-w-[200px] w-[calc(100%-4rem)] rounded-md z-0 border border-yellow-400 skew-x-[-15deg] `}
             style={{
               backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
@@ -53,7 +53,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
           
             flex-col 
           
-            z-40'
+            z-50'
             style={{
               transform: 'skewX(-15deg)',
             }}
