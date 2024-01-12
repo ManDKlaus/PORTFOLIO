@@ -14,7 +14,7 @@ function NavButton({ item }) {
         <a
             id={id}
             href={linkSrc}
-            target={text === "Download CV" ? null : "_blank"}
+            target="_blank"
             onClick={stop}
             download={objSrc}
             className={`w-16 hover:w-auto h-1/5 shadow-lg 
@@ -28,7 +28,7 @@ function NavButton({ item }) {
                 height="24"
                 className='dark:invert'
             />
-            <span className='hidden group-hover:inline pl-4 pr-6'>{text}</span>
+            <span className='hidden group-hover:block pl-4 pr-6 whitespace-nowrap'>{text}</span>
         </a>
     );
 }

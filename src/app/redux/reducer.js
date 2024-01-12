@@ -183,9 +183,9 @@ const initialState = {
         {
             id: 'CV',
             text: 'Download CV',
-            linkSrc: "../../../public/MansillaNicolásCV.pdf",
+            linkSrc: "/MansillaNicolásCV.pdf",
             objSrc: "MansillaNicolásCV.pdf",
-            iconSrc: "https://img.icons8.com/pulsar-line/48/resume.png",
+            iconSrc: "https://img.icons8.com/pulsar-line/48/open-resume.png",
         },
     ],
 };
