@@ -12,7 +12,7 @@ const ChartComponent = dynamic(() => import('../components/TechTreeChart'), { ss
 const ChartComponent2 = dynamic(() => import('../components/TechIllustration'), { ssr: false });
 import Titles from './Titles';
 
-const Technologies = ({ dark }) => {
+const Technologies = ({ dark, altoVentana }) => {
   // Define los datos del gráfico
   const technologyData = {
     name: "Root",
@@ -167,13 +167,13 @@ const Technologies = ({ dark }) => {
   };
 
   return (
-    <section id='Technologies' className='relative 
+    <section id='Technologies' className={`relative 
     
-    h-[50vh] md:h-screen lg:min-h-full w-full 
+    h-[${altoVentana / 2}px] md:h-[${altoVentana}px] lg:min-h-full w-full 
     
     flex flex-col items-center gap-4 
     
-    snap-start snap-always z-20' >
+    snap-start snap-always z-20`} >
       
       <Titles title="Technologies" />
       <ul className='absolute top-0 right-4 h-full w-auto flex flex-col gap-4 justify-center z-30'>

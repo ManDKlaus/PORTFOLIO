@@ -130,7 +130,7 @@ function Home() {
         
           bg-yellow-400 rounded shadow-lg'
         />
-        <Content dark={lightMode} />
+        <Content dark={lightMode} altoVentana={altoVentana} />
         <div
           className='absolute bottom-[10vh] right-0 z-40
           

@@ -1,9 +1,9 @@
 import React from 'react'
 import Titles from './Titles'
 
-function About() {
+function About({ altoVentana }) {
     return (
-        <section id='About' className='relative h-screen lg:h-full w-full lg:min-h-full w-full text-[12px] flex flex-col items-center justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased z-10'>
+        <section id='About' className={`relative h-[${altoVentana}px] lg:h-full lg:min-h-full w-full text-[12px] flex flex-col items-center justify-center snap-start snap-always tracking-widest indent-8 subpixel-antialiased z-10`} >
                 <Titles title="About Me" />
                 <p className='z-40 lg:w-2/3 w-3/5' >
                     Hi there! I&apos;m a passionate <span className='text-yellow-400'>Full Stack Developer</span>, obviusly. When I&apos;m not coding and building awesome web applications, you can find me indulging in my love for series and movies. I&apos;m a huge fan of classics like Pokemon, Naruto, and Dragon Ball, and I&apos;m always excited about the latest releases from the Marvel universe.

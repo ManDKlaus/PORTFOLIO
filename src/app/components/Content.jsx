@@ -8,7 +8,7 @@ import Likes from './Likes';
 import Comments from './Comments';
 import Contact from './Contact';
 
-function Content({ dark }) {
+function Content({ dark, altoVentana }) {
     const dashboard = useSelector(state => state.dashboard);
 
     return (
@@ -29,10 +29,10 @@ function Content({ dark }) {
                 </>
             ) : (
                 <>
-                    <About />
-                    <Projects />
-                    <Technologies dark={dark} />
-                    <Contact />
+                    <About altoVentana={altoVentana} />
+                    <Projects altoVentana={altoVentana} />
+                    <Technologies dark={dark} altoVentana={altoVentana} />
+                    <Contact altoVentana={altoVentana} />
                 </>
             )}
         </section>

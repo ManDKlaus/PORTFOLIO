@@ -2,13 +2,15 @@ import React from 'react'
 import CardContainer from './CardContainer'
 import Titles from './Titles'
 
-function Projects({ dark }) {
+function Projects({ dark, altoVentana }) {
+  console.log("altoVentana", altoVentana)
   return (
-    <section id='Projects' className='relative lg:min-h-full h-[50vh] md:h-screen w-full 
+    <section
+      id='Projects'
+      className={`relative w-full h-[${altoVentana / 2}px] md:h-[${altoVentana}px] lg:h-full lg:min-h-full
     
-    flex items-center justify-center gap-4 
-    
-    snap-start snap-always' >
+      snap-start snap-always`}
+    >
       <Titles title="Projects" />
       <CardContainer dark={dark} />
     </section>
