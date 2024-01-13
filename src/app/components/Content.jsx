@@ -18,7 +18,7 @@ function Content({ dark }) {
             
             flex flex-col items-center 
             
-            overflow-hidden lg:overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y`}
+            overflow-hidden md:overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y`}
         >
             {dashboard ? (
                 <>

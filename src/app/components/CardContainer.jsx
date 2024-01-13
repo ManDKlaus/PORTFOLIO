@@ -54,7 +54,7 @@ const CardContainer = () => {
                     onNextPage={handleNextPage}
                 />
             ))}
-            <div className="absolute -bottom-4 lg:bottom-28 w-full flex justify-center">
+            <div className="absolute bottom-20 lg:bottom-28 w-full flex justify-center">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button
                         key={index}

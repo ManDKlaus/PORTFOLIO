@@ -9,9 +9,9 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
   const imageObject = useSelector(state => state.imageObject);
 
   return (
-    <div className="w-full md:w-4/5 lg:w-3/4 h-auto flex flex-col items-center gap-4 z-10">
+    <div className="w-[75vw] lg:w-[50vw] h-auto flex flex-col items-center gap-4 z-10">
 
-      <div className="relative w-full h-[15vh] md:h-[20vh] lg:h-[25vh] flex flex items-center" >
+      <div className="relative w-full h-[15vh] md:h-[30vh] lg:h-[25vh] flex flex items-center" >
 
         <div className='absolute left-0 top-0 w-full h-full flex justify-between items-center z-50'>
           <Image
@@ -20,28 +20,42 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             src="https://img.icons8.com/pulsar-line/200/forward.png"
             onClick={onPrevPage}
             alt="Arrow Left"
-            className="cursor-pointer h-20 w-20 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
+            className="cursor-pointer h-12 w-12 md:h-28 md:w-28 mt-1 z-40 dark:invert rotate-180"
           />
-          <h3
-            className="w-full text-4xl lg:text-5xl indent-0 font-bold mr-28 mt-2 z-40 drop-shadow-4xl dark:drop-shadow-none pointer-events-none"
-          >
-            {title}
-          </h3>
-          <ProjectsButton />
+          <div className='relative basis-full'>
+            <h3
+              className="text-2xl lg:text-5xl indent-0 font-bold 
+            
+               mt-2 z-40
+              
+              drop-shadow-4xl dark:drop-shadow-none pointer-events-none"
+            >
+              {title}
+            </h3>
+            <ProjectsButton />
+          </div>
           <Image
             width="112"
             height="112"
             src="https://img.icons8.com/pulsar-line/200/forward.png"
             onClick={onNextPage}
             alt="Arrow Right"
-            className="cursor-pointer h-20 w-20 md:h-28 md:w-28 mt-1 z-40 dark:invert "
+            className="cursor-pointer h-12 w-12 md:h-28 md:w-28 mt-1 z-40 dark:invert "
           />
         </div>
-        <div className='absolute right-10 md:right-28 lg:right-32 h-full w-auto flex' >
+        <div
+          className='absolute right-6 md:right-32 
+          
+            h-full w-[50vw] md:w-[35vw]
+        
+            flex flex-row'
+        >
           <Image
             src={imageUrl}
             alt={title}
-            className={`h-auto min-w-[200px] w-[calc(100%-4rem)] rounded-md z-0 border border-yellow-400 skew-x-[-15deg] `}
+            className={`h-full w-[calc(100%-4rem)]
+            
+            rounded-md z-0 border border-yellow-400 -skew-x-[15deg] `}
             style={{
               backgroundImage: 'linear-gradient(to right, transparent, white, rgba(255, 255, 255, 1))',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black, black)',
@@ -49,14 +63,11 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
             }}
           />
           <div
-            className='h-full w-8 md:w-12 lg:w-16
+            className='h-full w-10 lg:w-16 z-50 
           
             flex-col 
           
-            z-50'
-            style={{
-              transform: 'skewX(-15deg)',
-            }}
+            -skew-x-[15deg]'
           >
             <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className={`h-1/2 w-full flex items-center justify-center text-white-500 ${dashboard ? "bg-emerald-100/50 dark:bg-neutral-500/70" : "bg-white/50 dark:bg-white/20"} rounded-tr-lg shadow-md`} >
               <img
@@ -96,7 +107,7 @@ const ProjectCard = ({ title, description, technologies, imageUrl, liveDemoLink,
         ))}
       </div>
       <p
-        className={`rounded w-2/3 h-auto`}
+        className={`rounded w-2/3 h-auto max-md:line-clamp-3 max-lg:line-clamp-4`}
       >
         {description}
       </p>

@@ -46,25 +46,29 @@ function ProjectsButton() {
     return (
         <div
             ref={containerRef}
-            className='absolute -bottom-20 md:-bottom-32 lg:-bottom-40 left-[20%] lg:left-28 w-auto h-full bg-neutral flex gap-2 z-50 drop-shadow-4xl dark:drop-shadow-none'
+            className='absolute left-0 top-8 md:top-16
+            
+            bg-neutral 
+            
+            flex lg:gap-2 z-50'
         >
             <Image
                 height={25}
                 width={25}
                 src={like ? "https://img.icons8.com/emoji/48/red-heart.png" : "https://img.icons8.com/pulsar-line/48/like.png"}
-                className={`h-10 w-14 p-4 pb-0 ${like ? "" : "dark:invert"}`}
+                className={`h-6 w-6 m-2 lg:m-4 mb-0 ${like ? "" : "dark:invert"} drop-shadow-4xl dark:drop-shadow-none`}
                 onClick={liked}
             />
             <div
                 disabled={activeComment}
                 onClick={activeCommented}
-                className={`h-10 w-14 ${activeComment && "shadow-md rounded-t-lg bg-white dark:bg-slate-600/95 "}`}
+                className={`h-8 w-10 lg:h-12 lg:w-14 ${activeComment && "shadow-md rounded-t-lg bg-white dark:bg-slate-600/95 "}`}
             >
                 <Image
                     height={25}
                     width={25}
                     src={comment ? "https://img.icons8.com/3d-fluency/94/chat-message.png" : "https://img.icons8.com/pulsar-line/48/comments.png"}
-                    className={`h-10 w-14 p-4 pb-0 ${comment ? "transform -scale-x-100" : `dark:invert`} `}
+                    className={`h-6 w-6 m-2 lg:m-4 mb-0 ${comment ? "transform -scale-x-100" : `dark:invert`} drop-shadow-4xl dark:drop-shadow-none`}
                 />
             </div>
             {
@@ -72,7 +76,12 @@ function ProjectsButton() {
                 <form
                     ref={formRef}
                     onSubmit={commented}
-                    className='absolute top-10 left-16 z-50 flex flex-col items-center gap-2 bg-white dark:bg-slate-600/95 text-white p-4 rounded-r-lg rounded-b-lg' >
+                    className='absolute top-8 lg:top-10 left-10 lg:left-16 z-50 
+                        
+                        w-[50vw] md:w-80 flex flex-col items-center gap-2 p-4 
+                        
+                        bg-white dark:bg-slate-600/95 text-white rounded-r-lg rounded-b-lg'
+                >
                     <textarea
                         className={`w-full py-1 px-2 rounded-lg placeholder:text-gray-400 placeholder:opacity-60
           

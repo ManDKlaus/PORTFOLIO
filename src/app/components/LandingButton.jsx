@@ -21,16 +21,28 @@ function NavButton({ item }) {
 
                 ${dashboard ? "bg-green-50/80 dark:bg-neutral-500/70" : "bg-white/80 dark:bg-slate-500/70"}
                 
-                pl-6 pr-4 flex flex-direction-nowrap items-center ${text === "GitHub" && "rounded-tr-lg"} ${text === "Download CV" && "rounded-br-lg"} hover:rounded-r-lg group`}
+                px-5 lg:pl-6 lg:pr-4 
+                
+                flex items-center 
+                
+                ${text === "GitHub" && "rounded-tr-lg"} ${text === "Download CV" && "rounded-br-lg"} hover:rounded-r-lg group`}
         >
             <Image
                 src={iconSrc}
                 alt={text}
                 width="24"
                 height="24"
-                className='w-14 lg:w-6 h-auto dark:invert'
+                className='w-6 dark:invert'
             />
-            <span className='hidden group-hover:block pl-4 pr-6 whitespace-nowrap'>{text}</span>
+            <span 
+                className='hidden group-hover:block 
+                
+                pl-5 lg:pl-4 lg:pr-6 
+                
+                whitespace-nowrap'
+            >
+                {text}
+            </span>
         </a>
     );
 }

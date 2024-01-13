@@ -31,7 +31,7 @@ function Contact() {
   return (
     <section
       id='Contact'
-      className='relative h-auto lg:min-h-full w-full pt-24 lg:py-0 mb-10 lg:mb-0 
+      className='relative h-[50vh] md:h-screen lg:min-h-full w-full 
     
       snap-start snap-always flex flex-col justify-center items-center'
     >

@@ -50,26 +50,26 @@ function Home() {
   const [altoVentana, setAltoVentana] = useState(0);
 
   useEffect(() => {
-      // Función para actualizar la altura de la ventana
-      const handleResize = () => {
-          setAltoVentana(window.innerHeight);
-      };
-
-      // Inicialización de la altura de la ventana
+    // Función para actualizar la altura de la ventana
+    const handleResize = () => {
       setAltoVentana(window.innerHeight);
+    };
 
-      // Agregar el evento de cambio de tamaño
-      window.addEventListener('resize', handleResize);
+    // Inicialización de la altura de la ventana
+    setAltoVentana(window.innerHeight);
 
-      // Limpiar el evento al desmontar el componente
-      return () => {
-          window.removeEventListener('resize', handleResize);
-      };
+    // Agregar el evento de cambio de tamaño
+    window.addEventListener('resize', handleResize);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
-      // Cuando cambia el altoVentana, actualiza el estilo de la sección
-      document.getElementById('Landing').style.height = `${altoVentana}px`;
+    // Cuando cambia el altoVentana, actualiza el estilo de la sección
+    document.getElementById('Landing').style.height = `${altoVentana}px`;
   }, [altoVentana]);
 
   console.log("altoVentana", altoVentana)
@@ -84,8 +84,9 @@ function Home() {
 
         ${lightMode ? "dark text-white" : "text-slate-950"} text-lg
         
-        overflow-hidden transition-dark text-sm duration-1000 select-none
-        custom-scrollbar scroll-smooth snap-mandatory snap-y
+        overflow-hidden
+
+        transition-dark text-sm duration-1000 select-none
       `}
       style={{
         cursor: `url("/img/Cursor.png"), auto`,
@@ -100,18 +101,18 @@ function Home() {
       
         flex items-center `} >
         <Landing />
-        <div className={`hidden lg:block h-screen w-16 `} >
+        <div className={`hidden lg:block h-screen w-16`} >
           <NavBar />
         </div>
       </div>
 
       <div className='hidden lg:block w-[25vw] min-w-[400px] h-full' />
       <div
-        className={`relative h-auto lg:h-full lg:w-[75vw]
+        className={`relative h-auto md:h-full lg:w-[75vw]
 
         flex
 
-        overflow-hidden lg:overflow-auto
+        overflow-hidden md:overflow-y-auto custom-scrollbar scroll-smooth snap-mandatory snap-y
 
         ${!lightMode && "transition animate-bg"}
         
@@ -127,31 +128,26 @@ function Home() {
 
           w-2/5 h-[1px] 
         
-          mt-auto bg-yellow-400 rounded shadow-lg'
+          bg-yellow-400 rounded shadow-lg'
         />
         <Content dark={lightMode} />
         <div
-          id='este'
-          className={`absolute bottom-0 right-0 z-40
-      
-          w-[calc(100%-400px)] h-[calc(10%)] ml-[400px]
+          className='absolute bottom-[10vh] right-0 z-40
+          
+          hidden lg:block
+
+          w-2/5 h-[1px] 
         
-          hidden lg:flex flex-col `}
-        >
-          <div
-            className='w-2/5 h-[1px]
-        
-            ml-auto bg-yellow-400 rounded shadow-lg'
-          />
-          <NavIn />
-        </div>
+          bg-yellow-400 rounded shadow-lg'
+        />
+        <NavIn />
       </div>
-        {lumos.map((lumos, index) => (
-          <Cursor
-            key={index}
-            transparent={lumos}
-          />
-        ))}
+      {lumos.map((lumos, index) => (
+        <Cursor
+          key={index}
+          transparent={lumos}
+        />
+      ))}
     </main >
   );
 }

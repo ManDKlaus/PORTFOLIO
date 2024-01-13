@@ -169,9 +169,7 @@ const Technologies = ({ dark }) => {
   return (
     <section id='Technologies' className='relative 
     
-    h-[calc(35vh)] lg:min-h-full w-full 
-    
-    pt-24 lg:py-0 mt-6 lg:my-0 
+    h-[50vh] md:h-screen lg:min-h-full w-full 
     
     flex flex-col items-center gap-4 
     

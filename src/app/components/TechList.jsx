@@ -15,7 +15,7 @@ function TechList() {
     const imageObject = useSelector(state => state.imageObject);
 
     return (
-        <div className='absolute top-0 left-0 h-full w-full px-[15vw] flex flex-wrap justify-center items-center content-end md:content-center lg:content-center pb-16 md:pb-0 lg:pb-0' >
+        <div className='absolute top-0 left-0 h-full w-full px-[15vw] flex flex-wrap justify-center items-center content-center ' >
             {isLoading ? (
                 Object.keys(imageObject).map((key) => (
                     <div

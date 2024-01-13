@@ -16,7 +16,8 @@ function NavIn({ show }) {
 
     return (
         <div
-            className={`flex items-center justify-end ${!connect && "hidden"} h-14 `}
+            className={`absolute right-0 bottom-[4vh]
+            flex items-center justify-end ${!connect && "hidden"} h-14 `}
         >
             <button
                 className={`flex items-center ${!connect && "hidden"} h-full group `}
