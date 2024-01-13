@@ -18,7 +18,9 @@ function InOut() {
 
     return (
         <button
-            className={`flex items-center ${show && "hidden"} h-10`}
+            className={`absolute right-0 top-[6svh]
+            
+            hidden lg:flex items-center ${show && "lg:hidden"} h-10`}
             onClick={ ConectOrNot }
         >
             <span className='p-2'>{connect ? "Sign Out" : "Sign In"}</span>

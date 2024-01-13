@@ -27,12 +27,11 @@ function Contact() {
   };
 
   const dashboard = useSelector(state => state.dashboard);
-  const windowHeight = useSelector(state => state.windowHeight);
 
   return (
     <section
       id='Contact'
-      className={`relative h-[${windowHeight / 2}px] md:h-[${windowHeight}px] lg:min-h-full w-full 
+      className={`relative h-[50svh] md:h-[100svh] lg:min-h-full w-full 
     
       snap-start snap-always flex flex-col justify-center items-center`}
     >

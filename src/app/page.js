@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeMode, updateWindowHeight } from './redux/actions';
+import { changeMode } from './redux/actions';
 import Landing from './components/Landing';
 import Content from './components/Content';
 import NavBar from './components/NavBar';
@@ -47,38 +47,11 @@ function Home() {
 
   const lumos = [6, 3, 1.8, 1.5, 1.2];
 
-  const windowHeight = useSelector(state => state.windowHeight);
-
-  useEffect(() => {
-    // Función para actualizar la altura de la ventana
-    const handleResize = () => {
-      dispatch(updateWindowHeight(window.innerHeight));
-    };
-
-    // Inicialización de la altura de la ventana
-    dispatch(updateWindowHeight(window.innerHeight));
-
-    // Agregar el evento de cambio de tamaño
-    window.addEventListener('resize', handleResize);
-
-    // Limpiar el evento al desmontar el componente
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Cuando cambia el altoVentana, actualiza el estilo de la sección
-    document.getElementById('Landing').style.height = `${windowHeight}px`;
-  }, [windowHeight]);
-
-  console.log("windowHeight", windowHeight)
-
   return (
     <main
       className={`relative 
       
-        h-auto lg:h-[${windowHeight}px] w-full
+        h-auto lg:h-[100svh] w-full
         
         lg:flex lg:items-center
 
@@ -97,11 +70,11 @@ function Home() {
       <div
         className={`lg:absolute left-0 top-0 
         
-        w-full lg:w-[calc(100vw+4rem)]
+        h-[100svh] w-full lg:w-[calc(100vw+4rem)]
       
         flex items-center `} >
         <Landing />
-        <div className={`hidden lg:block h-screen w-16`} >
+        <div className={`hidden lg:block h-[100svh] w-16`} >
           <NavBar />
         </div>
       </div>
@@ -122,7 +95,7 @@ function Home() {
         `}
       >
         <div
-          className='absolute top-[10vh] left-0 z-40
+          className='absolute top-[10svh] left-0 z-40
           
           hidden lg:block
 
@@ -132,7 +105,7 @@ function Home() {
         />
         <Content dark={lightMode} />
         <div
-          className='absolute bottom-[10vh] right-0 z-40
+          className='absolute bottom-[10svh] right-0 z-40
           
           hidden lg:block
 

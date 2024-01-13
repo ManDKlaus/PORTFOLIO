@@ -1,15 +1,12 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 import Titles from './Titles'
 
 function About() {
 
-    const windowHeight = useSelector(state => state.windowHeight);
-
     return (
         <section
             id='About'
-            className={`relative h-[${windowHeight}px] lg:h-full lg:min-h-full w-full
+            className={`relative h-[100svh] lg:h-full lg:min-h-full w-full
         
             flex flex-col items-center justify-center 
             

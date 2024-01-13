@@ -20,7 +20,6 @@ function Landing() {
 
     const show = useSelector(state => state.showLanding);
     const navLanding = useSelector(state => state.navLanding);
-    const windowHeight = useSelector(state => state.windowHeight);
 
     return (
         <section
@@ -40,12 +39,16 @@ function Landing() {
             py-24 bg-black/30 hover:bg-black/50
                     
             flex flex-col justify-center items-center`} >
-                <div className='absolute top-0 right-0 w-full h-[calc(10%)] z-50 flex flex-col items-end justify-end' >
-                    <div className='hidden lg:block'>
-                        <InOut />
-                    </div>
-                    <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg ml-auto' />
-                </div>
+                <InOut />
+                <div
+                    className='absolute top-[10svh] right-0 z-40
+          
+                        hidden lg:block
+
+                        w-3/5 h-[1px] 
+        
+                        bg-yellow-400 rounded shadow-lg'
+                />
                 <div
                     className={`w-[75vw] lg:w-[25vw] z-50 
                 
@@ -59,12 +62,12 @@ function Landing() {
                             alt="Nicol&aacute;s Daniel Mansilla"
                             width="auto"
                             height={200}
-                            className='h-[20vh] w-auto shadow-lg rounded-lg z-50'
+                            className='h-[20svh] w-auto shadow-lg rounded-lg z-50'
                         />
-                        <div 
-                            className={`h-[${windowHeight/2}px] lg:h-full
+                        <div
+                            className={`h-[50svh] lg:h-full
                         
-                            fixed lg:absolute left-0 top-[${windowHeight/4}px] lg:top-0 lg:left-[14.5vh] 
+                            fixed lg:absolute left-0 top-[25svh] lg:top-0 lg:left-[14.5svh] 
                             
                             flex flex-col justify-between z-40
                             
@@ -85,9 +88,15 @@ function Landing() {
                     <h2 className='mx-4 text-lg tracking-widest'>
                         <span className='font-bold'>Passionate Full Stack Developer</span> | Crafting Innovative Solutions for Seamless User Experiences | JS | HTML | CSS | React | Redux | NextJS | TailwindCSS | NodeJS | Express | PostgreSQL | Passport | Cloudinary | Multer</h2>
                 </div>
-                <div className='absolute bottom-0 right-0 w-full h-[calc(10%)] z-50 flex' >
-                    <div className='w-3/5 h-[1px] bg-yellow-400 z-50 rounded shadow-lg' />
-                </div>
+                <div
+                    className='absolute bottom-[10svh] left-0 z-40
+          
+                    hidden lg:block
+
+                    w-3/5 h-[1px] 
+        
+                    bg-yellow-400 rounded shadow-lg'
+                />
             </div>
         </section>
     );
