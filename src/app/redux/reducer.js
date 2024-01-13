@@ -188,6 +188,7 @@ const initialState = {
             iconSrc: "https://img.icons8.com/pulsar-line/48/open-resume.png",
         },
     ],
+    windowHeight: 0,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -200,6 +201,8 @@ const rootReducer = (state = initialState, action) => {
             return { ...state, dashboard: !state.dashboard };
         case SHOW_LANDING:
             return { ...state, showLanding: !state.showLanding };
+        case 'UPDATE_WINDOW_HEIGHT':
+            return { ...state, windowHeight: action.payload };
         default:
             return state;
     }

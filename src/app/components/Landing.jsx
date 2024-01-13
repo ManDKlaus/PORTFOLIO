@@ -20,6 +20,7 @@ function Landing() {
 
     const show = useSelector(state => state.showLanding);
     const navLanding = useSelector(state => state.navLanding);
+    const windowHeight = useSelector(state => state.windowHeight);
 
     return (
         <section
@@ -61,13 +62,13 @@ function Landing() {
                             className='h-[20vh] w-auto shadow-lg rounded-lg z-50'
                         />
                         <div 
-                            className='h-[50vh] lg:h-full
+                            className={`h-[${windowHeight/2}px] lg:h-full
                         
-                            fixed lg:absolute left-0 top-[25vh] lg:top-0 lg:left-[14.5vh] 
+                            fixed lg:absolute left-0 top-[${windowHeight/4}px] lg:top-0 lg:left-[14.5vh] 
                             
                             flex flex-col justify-between z-40
                             
-                            text-black dark:text-white'
+                            text-black dark:text-white`}
                         >
                             {navLanding.map((item) => (
                                 <LandingButton

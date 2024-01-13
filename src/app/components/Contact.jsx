@@ -5,7 +5,7 @@ import Image from 'next/image';
 import ContactW from "../../../public/img/ContactW.png";
 import Titles from './Titles';
 
-function Contact({ altoVentana }) {
+function Contact() {
   const [state, handleSubmit] = useForm("mleydpeo");
   const [showAlert, setShowAlert] = useState(false);
   const formRef = useRef(null);
@@ -27,11 +27,12 @@ function Contact({ altoVentana }) {
   };
 
   const dashboard = useSelector(state => state.dashboard);
+  const windowHeight = useSelector(state => state.windowHeight);
 
   return (
     <section
       id='Contact'
-      className={`relative h-[${altoVentana / 2}px] md:h-[${altoVentana}px] lg:min-h-full w-full 
+      className={`relative h-[${windowHeight / 2}px] md:h-[${windowHeight}px] lg:min-h-full w-full 
     
       snap-start snap-always flex flex-col justify-center items-center`}
     >

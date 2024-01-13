@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image'
 import GrafVirus from "../../../public/img/GrafVirus.png"
 import GrafVirusW from "../../../public/img/GrafVirusW.png"
@@ -12,7 +13,7 @@ const ChartComponent = dynamic(() => import('../components/TechTreeChart'), { ss
 const ChartComponent2 = dynamic(() => import('../components/TechIllustration'), { ssr: false });
 import Titles from './Titles';
 
-const Technologies = ({ dark, altoVentana }) => {
+const Technologies = ({ dark}) => {
   // Define los datos del gráfico
   const technologyData = {
     name: "Root",
@@ -166,10 +167,12 @@ const Technologies = ({ dark, altoVentana }) => {
     setSelectedChart("techList");
   };
 
+  const windowHeight = useSelector(state => state.windowHeight);
+
   return (
     <section id='Technologies' className={`relative 
     
-    h-[${altoVentana / 2}px] md:h-[${altoVentana}px] lg:min-h-full w-full 
+    h-[${windowHeight / 2}px] md:h-[${windowHeight}px] lg:min-h-full w-full 
     
     flex flex-col items-center gap-4 
     
