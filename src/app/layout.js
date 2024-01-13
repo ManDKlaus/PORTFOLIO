@@ -1,7 +1,7 @@
 import './globals.css'
 import { Varela_Round } from 'next/font/google'
 
-const varelaRound = Varela_Round({ subsets: ['latin'], weight:["400"] })
+const varelaRound = Varela_Round({ subsets: ['latin'], weight: ["400"] })
 
 export const metadata = {
   title: 'NDM-Portfolio',

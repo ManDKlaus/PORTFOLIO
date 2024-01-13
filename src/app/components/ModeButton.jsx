@@ -27,7 +27,9 @@ function ModeButton() {
   };
 
   return (
-    <button className="absolute top-[calc(100vh/10)] lg:top-40 left-0 w-16 hover:w-auto h-16 z-50 px-5
+    <button className="absolute top-[17vh] left-0 
+    
+    w-16 hover:w-auto h-16 z-50 px-5
     
     bg-white/10 rounded-r-lg shadow-md group
     

@@ -30,12 +30,6 @@ function Home() {
     localStorage.theme = lightMode ? 'light' : 'dark';
   }, [])
 
-  const mask = {
-    "--mask": `linear-gradient(to top, transparent, black)`,
-    WebkitMask: `var(--mask)`,
-    mask: `var(--mask)`,
-  };
-
   useEffect(() => {
     const handleMousemove = (e) => {
       const x = Math.round((e.clientX / window.innerWidth) * 100);
@@ -53,17 +47,42 @@ function Home() {
 
   const lumos = [6, 3, 1.8, 1.5, 1.2];
 
-  const show = useSelector(s => s.showLanding);
+  const [altoVentana, setAltoVentana] = useState(0);
+
+  useEffect(() => {
+      // Función para actualizar la altura de la ventana
+      const handleResize = () => {
+          setAltoVentana(window.innerHeight);
+      };
+
+      // Inicialización de la altura de la ventana
+      setAltoVentana(window.innerHeight);
+
+      // Agregar el evento de cambio de tamaño
+      window.addEventListener('resize', handleResize);
+
+      // Limpiar el evento al desmontar el componente
+      return () => {
+          window.removeEventListener('resize', handleResize);
+      };
+  }, []);
+
+  useEffect(() => {
+      // Cuando cambia el altoVentana, actualiza el estilo de la sección
+      document.getElementById('Landing').style.height = `${altoVentana}px`;
+  }, [altoVentana]);
+
+  console.log("altoVentana", altoVentana)
 
   return (
     <main
       className={`relative 
       
-        h-auto lg:h-full w-full min-w-[900px]
+        h-auto lg:h-[${altoVentana}px] w-full
         
         lg:flex lg:items-center
 
-        ${lightMode ? "dark text-white" : "text-slate-950"}
+        ${lightMode ? "dark text-white" : "text-slate-950"} text-lg
         
         overflow-hidden transition-dark text-sm duration-1000 select-none
         custom-scrollbar scroll-smooth snap-mandatory snap-y
@@ -72,66 +91,67 @@ function Home() {
         cursor: `url("/img/Cursor.png"), auto`,
       }}
     >
-      <div
-        className={`absolute -top-16 right-0 z-40 
-      
-          w-full h-[calc(10%+4rem)] pl-[400px]
-      
-          hidden lg:flex flex-col`}
-      >
-        <div
-          className='w-2/5 h-[1px] z-50 
-        
-          mt-auto bg-yellow-400 rounded shadow-lg'
-        />
-      </div>
       {lightMode && <Clouds />}
 
-      <div 
-        className={`lg:absolute left-0 top-0 h-auto lg:h-full w-full lg:w-[calc(100%+4rem)]
+      <div
+        className={`lg:absolute left-0 top-0 
+        
+        w-full lg:w-[calc(100vw+4rem)]
       
         flex items-center `} >
         <Landing />
-        <div className="hidden lg:block w-16 h-full" >
+        <div className={`hidden lg:block h-screen w-16 `} >
           <NavBar />
         </div>
       </div>
+
+      <div className='hidden lg:block w-[25vw] min-w-[400px] h-full' />
       <div
-        className={`w-full lg:w-[calc(100%-320px)] h-auto lg:h-full lg:ml-[410px]
+        className={`relative h-auto lg:h-full lg:w-[75vw]
+
+        flex
+
         overflow-hidden lg:overflow-auto
 
         ${!lightMode && "transition animate-bg"}
         
         bg-[radial-gradient(circle_at_-100px_200px,_var(--tw-gradient-stops))] 
         
-        ${dashboard ? (lightMode ? " lg:from-neutral-800/60 lg:via-neutral-950 lg:to-neutral-950" : "lg:from-green-50/80 lg:via-green-200 lg:to-green-300") : (lightMode ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-700 lg:via-slate-800 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500")
-          }
+        ${dashboard ? (lightMode ? "lg:from-neutral-800/60 lg:via-neutral-950 lg:to-neutral-950" : "lg:from-green-50/80 lg:via-green-200 lg:to-green-300") : (lightMode ? "from-slate-800 via-slate-950 to-slate-950 lg:from-slate-700 lg:via-slate-800 lg:to-slate-950" : "from-white via-white to-gray-600 lg:from-white lg:via-white lg:to-gray-500")}
         `}
       >
+        <div
+          className='absolute top-[10vh] left-0 z-40
+          
+          hidden lg:block
+
+          w-2/5 h-[1px] 
+        
+          mt-auto bg-yellow-400 rounded shadow-lg'
+        />
+        <Content dark={lightMode} />
+        <div
+          id='este'
+          className={`absolute bottom-0 right-0 z-40
+      
+          w-[calc(100%-400px)] h-[calc(10%)] ml-[400px]
+        
+          hidden lg:flex flex-col `}
+        >
+          <div
+            className='w-2/5 h-[1px]
+        
+            ml-auto bg-yellow-400 rounded shadow-lg'
+          />
+          <NavIn />
+        </div>
+      </div>
         {lumos.map((lumos, index) => (
           <Cursor
             key={index}
             transparent={lumos}
           />
         ))}
-        <Content dark={lightMode} />
-      </div>
-      <div
-        id='este'
-        className={`absolute bottom-0 right-0 z-40
-      
-          w-[calc(100%-400px)] h-[calc(10%)] ml-[400px]
-        
-          hidden lg:flex flex-col `}
-        style={lightMode ? {} : { mask }}
-      >
-        <div
-          className='w-2/5 h-[1px]
-        
-            ml-auto bg-yellow-400 rounded shadow-lg'
-        />
-        <NavIn />
-      </div>
     </main >
   );
 }

@@ -14,7 +14,7 @@ function Content({ dark }) {
     return (
         <section
             id='Content'
-            className={`w-full lg:h-[calc(80vh)] lg:my-[calc(100vh/10)] z-20
+            className={`w-full lg:w-[75vw] lg:h-[80vh] lg:my-[10vh] z-20
             
             flex flex-col items-center 
             
