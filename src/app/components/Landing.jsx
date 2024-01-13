@@ -36,14 +36,12 @@ function Landing() {
         >
             <div className={` w-full h-full 
 
-            py-24 bg-black/30 hover:bg-black/50
+            py-[10svh] bg-black/30 hover:bg-black/50
                     
             flex flex-col justify-center items-center`} >
                 <InOut />
                 <div
                     className='absolute top-[10svh] right-0 z-40
-          
-                        hidden lg:block
 
                         w-3/5 h-[1px] 
         
@@ -90,8 +88,6 @@ function Landing() {
                 </div>
                 <div
                     className='absolute bottom-[10svh] left-0 z-40
-          
-                    hidden lg:block
 
                     w-3/5 h-[1px] 
         

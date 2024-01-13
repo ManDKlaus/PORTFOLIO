@@ -184,7 +184,9 @@ const Technologies = ({ dark }) => {
             height="20"
             src={dark ? IconsW : Icons}
             alt="Grafic List"
-            className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
+            className={`w-10 p-1 
+            
+            cursor-pointer border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "techList" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
             onClick={handleShowTechList}
           />
         </li>
@@ -194,7 +196,9 @@ const Technologies = ({ dark }) => {
             height="20"
             src={dark ? GrafVirusW : GrafVirus}
             alt="Grafic Virus"
-            className={`cursor-pointer w-8 h-8 p-1 border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
+            className={`w-10 p-1 
+            
+            cursor-pointer border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "virus" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
             onClick={handleShowVirus}
           />
         </li>
@@ -204,7 +208,9 @@ const Technologies = ({ dark }) => {
             height="20"
             src={dark ? GrafIllustrationW : GrafIllustration}
             alt="Grafic Illustration"
-            className={`cursor-pointer w-8 h-8 p-1 border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
+            className={`w-10 p-1
+            
+            cursor-pointer border-double border-2 dark:border-white border-slate-900 rounded-full relative ${selectedChart === "illustration" && "outline outline-offset-2 outline-1 outline-yellow-300 "}`}
             onClick={handleShowIllustration}
           />
         </li>
