@@ -1,5 +1,6 @@
 import './globals.css'
 import { Varela_Round } from 'next/font/google'
+import Script from 'next/script'
 
 const varelaRound = Varela_Round({ subsets: ['latin'], weight: ["400"] })
 
@@ -14,14 +15,23 @@ export default function RootLayout({ children }) {
       <head>
         <link href="./output.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <script async src="https://www.googletagmanager.com/gtm.js?id=G-CZYCJMVZQX"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        </script>
       </head>
-      <body className={`${varelaRound.className} tracking-wider  `} >{children}</body>
+      <body className={`${varelaRound.className} tracking-wider  `} >
+        {children}
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-CZYCJMVZQX" 
+          strategy="afterInteractive" 
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-CZYCJMVZQX');
+          `}
+        </Script>
+      </body>
     </html>
   )
 }
