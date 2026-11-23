@@ -25,7 +25,7 @@ function NavSetting() {
     };
 
     return (
-        <div className="flex items-center space-x-3">
+        <div className="fixed top-4 right-4 z-[100] flex items-center space-x-3">
             <LanguageSelector />
             
             <div className="flex items-center space-x-2">
