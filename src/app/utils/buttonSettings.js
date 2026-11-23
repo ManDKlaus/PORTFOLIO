@@ -6,6 +6,7 @@ export const buttonSettings = [
         icon: '/img/Stadistic.png',
         iconW: '/img/StadisticW.png',
         action: 'dashboard',
+        requiresAuth: true
     },
     {
         id: 'chat',
@@ -14,6 +15,7 @@ export const buttonSettings = [
         icon: '/img/Chat.png',
         iconW: '/img/ChatW.png',
         action: 'chat',
+        requiresAuth: true
     },
     {
         id: 'auth',
@@ -26,5 +28,6 @@ export const buttonSettings = [
         iconInW: '/img/SignInW.png',
         iconOutW: '/img/SignOutW.png',
         action: 'auth',
+        requiresAuth: false
     }
 ];
