@@ -52,7 +52,7 @@ function Landing() {
         }
 
         // Sensibilidad del desplazamiento según el ancho de la pantalla
-        const sensitivity = 0.4; 
+        const sensitivity = 1.0; 
         const newBgX = startBgX.current - (deltaX * sensitivity);
 
         // Limitar la posición del fondo entre 0% (izquierda) y 100% (derecha)
@@ -84,7 +84,6 @@ function Landing() {
             style={{
                 backgroundImage: `url(${Banner.src})`,
                 backgroundPosition: `${bgX}% center`,
-                transition: isDragging.current ? 'none' : 'background-position 0.3s ease-out',
             }}
             onMouseDown={handleStart}
             onMouseMove={handleMove}
