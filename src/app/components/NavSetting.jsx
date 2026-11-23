@@ -8,7 +8,7 @@ import { login, logout, showNavIn } from '../redux/actions';
 
 function NavSetting() {
     const dispatch = useDispatch();
-    const isAuthenticated = useSelector(state => state.isAuthenticated);
+    const isAuthenticated = useSelector(state => state.isAuthenticated || false);
 
     const handleAction = (btn) => {
         if (btn.id === 'auth') {
@@ -25,7 +25,7 @@ function NavSetting() {
     };
 
     return (
-        <div className="fixed top-4 right-4 z-[100] flex items-center space-x-3">
+        <div className="fixed top-4 right-4 z-[100] flex items-center space-x-3 bg-slate-900 border border-slate-700 p-2 rounded-xl text-white shadow-2xl">
             <LanguageSelector />
             
             <div className="flex items-center space-x-2">
