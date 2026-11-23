@@ -194,6 +194,8 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'SET_LANGUAGE':
+            return { ...state, language: action.payload };
         case CHANGE_MODE:
             return { ...state, lightMode: action.payload };
         case CHANGE_CONNECTION:
