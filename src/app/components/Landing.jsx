@@ -21,6 +21,55 @@ function Landing() {
     const show = useSelector(state => state.showLanding);
     const navLanding = useSelector(state => state.navLanding);
 
+    // Estado y referencias para controlar el desplazamiento horizontal y el arrastre
+    const [bgX, setBgX] = useState(50); // Posición inicial en 50% (centrado)
+    const isDragging = useRef(false);
+    const startX = useRef(0);
+    const startBgX = useRef(50);
+    const hasDragged = useRef(false);
+
+    // 1. Iniciar arrastre (mouse o touch)
+    const handleStart = (e) => {
+        // Ignorar si el clic fue sobre los botones de navegación
+        if (e.target.closest('button')) return;
+
+        isDragging.current = true;
+        hasDragged.current = false;
+        startX.current = e.touches ? e.touches[0].clientX : e.clientX;
+        startBgX.current = bgX;
+    };
+
+    // 2. Mover la imagen mientras se arrastra
+    const handleMove = (e) => {
+        if (!isDragging.current) return;
+
+        const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+        const deltaX = currentX - startX.current;
+
+        // Si se movió más de 5px, se considera arrastre y se evita la activación del clic
+        if (Math.abs(deltaX) > 5) {
+            hasDragged.current = true;
+        }
+
+        // Sensibilidad del desplazamiento según el ancho de la pantalla
+        const sensitivity = 0.15; 
+        const newBgX = startBgX.current - (deltaX * sensitivity);
+
+        // Limitar la posición del fondo entre 0% (izquierda) y 100% (derecha)
+        setBgX(Math.min(Math.max(newBgX, 0), 100));
+    };
+
+    // 3. Finalizar arrastre y decidir si fue Clic o Drag
+    const handleEnd = () => {
+        if (!isDragging.current) return;
+        isDragging.current = false;
+
+        // Si NO fue un arrastre, se ejecuta la interacción original de achicar/agrandar
+        if (!hasDragged.current) {
+            dispatch(showLanding());
+        }
+    };
+
     return (
         <section
             id='Landing'
@@ -34,8 +83,15 @@ function Landing() {
             
             style={{
                 backgroundImage: `url(${Banner.src})`,
+                backgroundPosition: `${bgX}% center`,
             }}
-            onClick={showFull}
+            onMouseDown={handleStart}
+            onMouseMove={handleMove}
+            onMouseUp={handleEnd}
+            onMouseLeave={handleEnd}
+            onTouchStart={handleStart}
+            onTouchMove={handleMove}
+            onTouchEnd={handleEnd}
         >
             <div className={` w-full h-full 
 
