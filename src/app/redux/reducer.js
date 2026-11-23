@@ -3,6 +3,7 @@ import { CHANGE_MODE, CHANGE_CONNECTION, CHANGE_DASHBOARD, SHOW_LANDING } from '
 import Banner from "../../../public/img/NDM-Portfolio.png"
 
 const initialState = {
+    language: 'es',
     lightMode: false,
     connect: false,
     dashboard: false,
