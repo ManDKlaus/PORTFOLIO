@@ -7,13 +7,14 @@ function ButtonSetting({ config, onClick }) {
     const isDark = useSelector(state => state.darkMode);
     const isAuthenticated = useSelector(state => state.isAuthenticated);
 
-    // Seleccionar icono y etiqueta según estado
+    // Selección de ícono según estado
     const iconSrc = config.id === 'auth'
         ? (isAuthenticated 
             ? (isDark ? config.iconOutW : config.iconOut)
             : (isDark ? config.iconInW : config.iconIn))
         : (isDark ? config.iconW : config.icon);
 
+    // Selección de texto según idioma y estado
     const label = config.id === 'auth'
         ? (isAuthenticated 
             ? (language === 'es' ? config.labelEsOut : config.labelEnOut)
@@ -23,7 +24,7 @@ function ButtonSetting({ config, onClick }) {
     return (
         <button
             onClick={onClick}
-            className="flex items-center gap-1.5 px-2 py-1 text-xs font-semibold rounded hover:bg-slate-800 transition-colors"
+            className="flex items-center space-x-2 px-3 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-800 transition-colors"
         >
             <Image src={iconSrc} alt={label} width={18} height={18} />
             <span>{label}</span>
