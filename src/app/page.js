@@ -11,6 +11,7 @@ import NavBar from './components/NavBar';
 import Cursor from './components/Cursor';
 import Clouds from './components/Clouds';
 import NavIn from './components/NavIn';
+import NavSetting from './components/NavSetting';
 
 function Home() {
 
@@ -73,6 +74,7 @@ function Home() {
         h-[100svh] w-full lg:w-[calc(100vw+4rem)]
       
         flex items-center `} >
+        <NavSetting />
         <Landing />
         <div className={`hidden lg:block h-[100svh] w-16`} >
           <NavBar />
