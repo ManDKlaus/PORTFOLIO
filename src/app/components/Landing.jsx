@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import LandingButton from "./LandingButton";
 import Image from 'next/image';
 import PhotoCV from "../../../public/Nicolas.jpeg";
@@ -79,7 +79,7 @@ function Landing() {
             
             shadow lg:shadow-md dark:shadow-2xl shadow-slate-900 text-white transition-width
             
-            ease-in-out duration-700 lg:cursor-pointer bg-cover bg-center`}
+            ease-in-out duration-700 lg:cursor-grab active:cursor-grabbing bg-cover`}
             
             style={{
                 backgroundImage: `url(${Banner.src})`,
