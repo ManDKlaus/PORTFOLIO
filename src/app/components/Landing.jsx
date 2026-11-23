@@ -27,16 +27,41 @@ function Landing() {
     const startX = useRef(0);
     const startBgX = useRef(50);
     const hasDragged = useRef(false);
-
+    
+    // Referencias para suavizar el movimiento sin lag
+    const targetBgX = useRef(50);
+    const animationFrameId = useRef(null);
+    
     // 1. Iniciar arrastre (mouse o touch)
     const handleStart = (e) => {
-        // Ignorar si el clic fue sobre los botones de navegación
         if (e.target.closest('button')) return;
+
+        if (animationFrameId.current) {
+            cancelAnimationFrame(animationFrameId.current);
+            animationFrameId.current = null;
+        }
 
         isDragging.current = true;
         hasDragged.current = false;
         startX.current = e.touches ? e.touches[0].clientX : e.clientX;
         startBgX.current = bgX;
+        targetBgX.current = bgX;
+    };
+
+    // Función de interpolación suave (lerp) ejecutada en el frame del navegador
+    const updateSmoothBg = () => {
+        setBgX((prevBgX) => {
+            const diff = targetBgX.current - prevBgX;
+            // Factor de suavizado: 0.25 responde al instante sin retraso pero amortigua los saltos del cursor
+            if (Math.abs(diff) > 0.01) {
+                return prevBgX + diff * 0.25;
+            }
+            return targetBgX.current;
+        });
+
+        if (isDragging.current) {
+            animationFrameId.current = requestAnimationFrame(updateSmoothBg);
+        }
     };
 
     // 2. Mover la imagen mientras se arrastra
@@ -46,17 +71,19 @@ function Landing() {
         const currentX = e.touches ? e.touches[0].clientX : e.clientX;
         const deltaX = currentX - startX.current;
 
-        // Si se movió más de 5px, se considera arrastre y se evita la activación del clic
         if (Math.abs(deltaX) > 5) {
             hasDragged.current = true;
         }
 
-        // Sensibilidad del desplazamiento según el ancho de la pantalla
         const sensitivity = 0.8; 
         const newBgX = startBgX.current - (deltaX * sensitivity);
 
-        // Limitar la posición del fondo entre 0% (izquierda) y 100% (derecha)
-        setBgX(Math.min(Math.max(newBgX, 0), 100));
+        // Actualizamos el objetivo instantáneamente
+        targetBgX.current = Math.min(Math.max(newBgX, 0), 100);
+
+        if (!animationFrameId.current) {
+            animationFrameId.current = requestAnimationFrame(updateSmoothBg);
+        }
     };
 
     // 3. Finalizar arrastre y decidir si fue Clic o Drag
@@ -64,7 +91,11 @@ function Landing() {
         if (!isDragging.current) return;
         isDragging.current = false;
 
-        // Si NO fue un arrastre, se ejecuta la interacción original de achicar/agrandar
+        if (animationFrameId.current) {
+            cancelAnimationFrame(animationFrameId.current);
+            animationFrameId.current = null;
+        }
+
         if (!hasDragged.current) {
             dispatch(showLanding());
         }
