@@ -52,7 +52,7 @@ function Landing() {
         }
 
         // Sensibilidad del desplazamiento según el ancho de la pantalla
-        const sensitivity = 1.0; 
+        const sensitivity = 0.8; 
         const newBgX = startBgX.current - (deltaX * sensitivity);
 
         // Limitar la posición del fondo entre 0% (izquierda) y 100% (derecha)
@@ -77,7 +77,7 @@ function Landing() {
             
             h-full w-full ${!show && "lg:w-[25vw] lg:min-w-[400px]"}
             
-            shadow lg:shadow-md dark:shadow-2xl shadow-slate-900 text-white transition-width
+            shadow lg:shadow-md dark:shadow-2xl shadow-slate-900 text-white transition-[width]
             
             ease-in-out duration-700 lg:cursor-grab active:cursor-grabbing bg-cover`}
             
