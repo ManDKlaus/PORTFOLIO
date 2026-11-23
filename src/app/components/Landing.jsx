@@ -52,7 +52,7 @@ function Landing() {
         }
 
         // Sensibilidad del desplazamiento según el ancho de la pantalla
-        const sensitivity = 0.15; 
+        const sensitivity = 0.4; 
         const newBgX = startBgX.current - (deltaX * sensitivity);
 
         // Limitar la posición del fondo entre 0% (izquierda) y 100% (derecha)
@@ -84,6 +84,7 @@ function Landing() {
             style={{
                 backgroundImage: `url(${Banner.src})`,
                 backgroundPosition: `${bgX}% center`,
+                transition: isDragging.current ? 'none' : 'background-position 0.3s ease-out',
             }}
             onMouseDown={handleStart}
             onMouseMove={handleMove}
@@ -117,16 +118,16 @@ function Landing() {
                         <Image
                             src={PhotoCV}
                             alt="Nicolás Daniel Mansilla"
-                            className='h-[20svh] w-auto shadow-lg rounded-lg z-50'
+                            className='h-[20svh] w-auto shadow-lg rounded-lg z-50 select-none'
                         />
                         <div
                             className={`h-[50svh] lg:h-full
                         
-                            fixed lg:absolute left-0 top-[25svh] lg:top-0 lg:left-[14.5svh] 
+                            fixed lg:absolute left-0 top-[25svh] lg:top-0 lg:left-[14.5svh] select-none
                             
                             flex flex-col justify-between z-40
                             
-                            text-black dark:text-white`}
+                            text-black dark:text-white `}
                         >
                             {navLanding.map((item) => (
                                 <LandingButton
