@@ -4,6 +4,14 @@ export const CHANGE_CONNECTION = "GET_CONNECTION";
 export const CHANGE_DASHBOARD = "CHANGE_DASHBOARD";
 export const SHOW_LANDING = "SHOW_LANDING";
 export const UPDATE_WINDOW_HEIGHT = "UPDATE_WINDOW_HEIGHT";
+export const SET_LANGUAGE = 'SET_LANGUAGE';
+
+export const setLanguage = (lang) => {
+    return {
+        type: SET_LANGUAGE,
+        payload: lang,
+    };
+};
 
 export const changeMode = (payload) => {
   return { type: CHANGE_MODE, payload };
